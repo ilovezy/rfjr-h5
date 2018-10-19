@@ -1,0 +1,51 @@
+@import "../../../assets/styles/common/variables";
+
+.recharge-page {
+
+  .bank-info {
+    padding: 0.3rem 0.4rem;
+    .flex();
+    background: #fff;
+    margin-top: 0.2rem;
+    .bank-logo-wrap {
+      .round(0.72rem);
+    }
+
+    .bank-detail {
+      .flex();
+      padding-left: 0.4rem;
+      flex-direction: column;
+      color: @color-sub;
+      .top {
+        width: 100%;
+        .flex();
+        .font32();
+        margin-bottom: 0.2rem;
+
+        .name {
+          .font32();
+
+          color: @color-main;
+          display: inline-block;
+          margin-right: 0.4rem;
+        }
+      }
+      .bottom {
+        width: 100%;
+      }
+    }
+
+  }
+
+  .form-body-simple {
+    margin-top: 0.2rem;
+  }
+  .btn-wrap {
+    margin-top: 0.8rem;
+    padding: 0.4rem;
+  }
+
+  .bottom-tips {
+    margin-top: 2rem;
+  }
+}

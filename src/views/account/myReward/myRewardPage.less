@@ -1,0 +1,84 @@
+@import "../../../assets/styles/common/variables";
+
+.my-reward-page {
+  .nav-right {
+    color: @color-sub;
+    .font28();
+  }
+
+  .modal {
+    .modal-body {
+      padding: 0.3rem 0.1rem;
+      .font28();
+      line-height: 0.4rem;
+      color: @color-main;
+    }
+  }
+
+  .top-container {
+    height: 2.4rem;
+    text-align: center;
+    padding-top: 0.3rem;
+    background: url("/static/images/account/myReward-bg.png") no-repeat center;
+    background-size: 100%;
+    background-color: #fff;
+    position: relative;
+    .flex-around();
+  }
+  .top-main {
+    .num {
+      color: @text-color-primary;
+      font-weight: bold;
+      font-size: 0.8rem;
+      line-height: 0.8rem;
+      margin-bottom: 0.25rem;
+
+      .unit {
+        font-size: 0.26rem;
+        line-height: 0.26rem;
+        margin-left: 0.05rem;
+      }
+    }
+
+    .text {
+      color: @color-main;
+      .font28();
+      text-align: center;
+    }
+  }
+
+  .simple-panel-table {
+    margin-top: 0.2rem;
+    .list-item {
+      height: 1rem;
+      line-height: 1rem;
+      padding: 0 0.4rem;
+      box-sizing: border-box;
+      &:active {
+        background: #fff;
+      }
+      .font28();
+      color: @color-main;
+      .text1 {
+        text-align: left;
+        width: 40%;
+      }
+      .text2 {
+        text-align: left;
+        width: 30%;
+        flex: 1;
+      }
+      .text3 {
+        text-align: right;
+        flex: 1;
+      }
+    }
+
+    .list-no-data {
+      color: @color-main;
+      .font28();
+      padding: 1.2rem 0.4rem;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@import "../../assets/styles/common/variables";
+
+.dueIn-page {
+  .simple-panel {
+    margin-top: 0.2rem;
+    .list-item-spe {
+      background: #fff;
+      padding: 0.3rem 0.4rem;
+      color: @color-main;
+      font-size: 0.28rem;
+      margin-bottom: 0.02rem;
+      &:active {
+        background: @link-active-bg;
+      }
+      .top {
+        .flex-between();
+        font-size: 0.32rem;
+        line-height: 0.32rem;
+        margin-bottom: 0.3rem;
+        .left {
+          color: @color-primary;
+        }
+        .right {
+          color: @color-main;
+        }
+      }
+      .bottom {
+        .flex-between();
+
+        font-size: 0.28rem;
+        line-height: 0.28rem;
+        color: @color-sub;
+      }
+    }
+  }
+}

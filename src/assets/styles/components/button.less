@@ -1,0 +1,95 @@
+@import "../common/variables";
+@import "../common/mixins";
+.m-button{
+  padding: 0 @body-padding-vertical;
+}
+.btn-variant() {
+  text-align: center;
+  position: relative;
+  border: none;
+  pointer-events: auto;
+}
+.btn{
+  .btn-variant();
+  height: @btn-height;
+  line-height: @btn-height;
+  font-size: @btn-fontsize;
+  display: inline-block;
+  padding: 0 .2rem;
+  box-sizing: border-box;
+  border-radius: @btn-radius;
+
+  &.btn-round {
+    border-radius: 10rem;
+  }
+
+  &.btn-square{
+    border-radius: 0!important;
+  }
+}
+.btn-block{
+  .btn-variant();
+  width: 100%;
+  display: block;
+  font-size: @btn-block-fontsize;
+  height: @btn-block-height;
+  line-height: @btn-block-height;
+  border-radius: @btn-block-radius;
+}
+.btn-primary{
+  .tap-color(@btn-primary-bg);
+  color: @btn-default-color;
+}
+.btn-primary-hollow{
+  border: 1px solid @btn-primary-bg;
+  background-color: @btn-default-color;
+  color: @btn-primary-bg;
+}
+.btn-danger{
+  .tap-color(@btn-danger-bg);
+  color: @btn-default-color;
+}
+.btn-warning{
+  .tap-color(@btn-warning-bg);
+  color: @btn-default-color;
+}
+.btn-warning-hollow{
+  border: 1px solid @btn-warning-bg;
+  color: @btn-warning-bg;
+}
+.btn-disabled{
+  .tap-color(@btn-disabled-bg);
+  color: @btn-disabled-color!important;
+  pointer-events: none;
+}
+.btn-hollow{
+  .tap-color(@btn-hollow-bg, .97);
+  color: @btn-hollow-color;
+  border: 1px solid @btn-hollow-border-color;
+}
+.hairline .btn-hollow{
+  border: .5px solid @btn-hollow-border-color * 0.95;
+}
+
+.btn-cell-special {
+  display: inline-block;
+  border: none;
+  color: @color-primary;
+  &.-disabled {
+    color: @color-sub;
+  }
+}
+
+.btn-tiny-blue {
+  display: inline-block;
+  padding: 0.06rem 0.1rem;
+  color: @color-info;
+  border: 1px solid @color-info;
+}
+
+.btn-fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.32rem;
+}

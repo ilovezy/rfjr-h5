@@ -1,0 +1,49 @@
+@import "../../../assets/styles/common/variables";
+
+.loan-card-wrap {
+  padding: 0.2rem;
+  padding-bottom: 0;
+  .loan-card {
+    border-radius: 0.06rem;
+    header {
+      .flex-between();
+      .font32();
+      .grey-border-bottom();
+      background: #fff;
+      padding: 0.3rem 0.2rem;
+      .name {
+        font-weight: 500;
+        color: @color-main;
+      }
+      .status {
+        color: @color-primary;
+      }
+    }
+
+    .loan-body {
+      padding: 0.3rem 0.2rem;
+      background: #fff;
+
+      .simple-info {
+        .font28();
+        .flex-between();
+        .text-main {
+          margin-right: .4rem;
+        }
+      }
+      .bottom {
+        padding-top: 0.5rem;
+        .progress .info {
+          margin-bottom: 0;
+        }
+      }
+
+      &.loan-text-info {
+        padding-bottom: 0;
+        .simple-info {
+          padding-bottom: 0.3rem;
+        }
+      }
+    }
+  }
+}

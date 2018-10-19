@@ -1,0 +1,95 @@
+@import "../../../assets/styles/common/variables";
+
+.withdraw-page {
+
+  .bank-info {
+    padding: 0.3rem 0.4rem;
+    padding-top: 0.1rem;
+
+    .panel-title {
+      height: 1rem;
+      display: flex;
+      align-items: center;
+      padding: 0 0.4rem;
+      color: @color-main;
+      font-size: 0.32rem;
+      position: relative;
+      background: #fff;
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0.04rem;
+        height: 0.32rem;
+        display: inline-block;
+        background: @color-main;
+      }
+    }
+    .flex();
+    background: #fff;
+    .bank-logo-wrap {
+      .round(0.72rem);
+    }
+
+    .bank-detail {
+      .flex();
+      padding-left: 0.4rem;
+      flex-direction: column;
+      color: @color-sub;
+      .top {
+        width: 100%;
+        .flex();
+        .font32();
+        margin-bottom: 0.2rem;
+
+        .name {
+          .font32();
+
+          color: @color-main;
+          display: inline-block;
+          margin-right: 0.4rem;
+        }
+      }
+      .bottom {
+        width: 100%;
+      }
+    }
+
+  }
+
+  .form-body-simple {
+    margin-top: 0.2rem;
+
+    .form-item.with-extra{
+      line-height: normal;
+      align-items: flex-start;
+      height: auto;
+      padding: 0.3rem 0.4rem;
+      .right {
+        flex: 5;
+
+        .extra-text {
+          color: @color-sub;
+          margin-top: 0.3rem;
+        }
+      }
+    }
+  }
+  .btn-wrap {
+    margin-top: 0.4rem;
+    padding: 0.4rem;
+  }
+
+  .bottom-tips {
+    margin-top: 0.6rem;
+  }
+
+  .confirm-bd {
+    color: @color-main;
+    .font28();
+    line-height: 0.4rem;
+    text-align: left;
+  }
+}

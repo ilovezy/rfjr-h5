@@ -1,0 +1,132 @@
+.form-item {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 0.2rem;
+
+  .form-control {
+    border: none;
+    width: 60%;
+    font-size: 0.48rem;
+    color: @color-main;
+
+    &::-webkit-input-placeholder {
+      color: #aab2bd;
+      font-size: 0.28rem;
+    }
+  }
+
+  .pwd-icon {
+    width: 0.38rem;
+  }
+
+  .text-btn {
+
+  }
+}
+
+.form-item-ghost {
+  width: 100%;
+  height: 1rem;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #F5F7FB;
+  padding: 0 0.4rem;
+  background: #fff;
+  .form-control {
+    border: none;
+    width: 100%;
+    height: 100%;
+    font-size: 0.28rem;
+    color: @color-main;
+
+    &::-webkit-input-placeholder {
+      color: #848A93;
+      font-size: 0.28rem;
+    }
+  }
+
+  &.select-item {
+    .flex-between();
+    flex: 1;
+
+    &:active {
+      background: @link-active-bg;
+    }
+
+    .img-arrow-down {
+      display: inline-block;
+      width: 0.22rem;
+    }
+  }
+
+  .pwd-icon {
+    width: 0.38rem;
+  }
+}
+
+.form-body-simple {
+
+  &.with-label {
+    .label {
+      width: 30%;
+      flex: 2;
+    }
+
+    .form-control {
+      flex: 5;
+    }
+
+    .form-item {
+      .spe-wrap {
+        flex: 5;
+      }
+
+      .btn-cell-special {
+        position: absolute;
+        right: 0.4rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  .form-item {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.02rem;
+    border-bottom: none;
+    background: #fff;
+    height: 1rem;
+    line-height: 1rem;
+    padding: 0 0.4rem;
+
+    .form-control {
+      border: none;
+      width: 60%;
+      .font32();
+      color: @color-main;
+
+      &::-webkit-input-placeholder {
+        color: #aab2bd;
+        font-size: 0.28rem;
+      }
+    }
+
+    .pwd-icon {
+      width: 0.38rem;
+    }
+  }
+}

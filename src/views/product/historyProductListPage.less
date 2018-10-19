@@ -1,0 +1,101 @@
+@import "../../assets/styles/common/variables";
+
+.product-history-page {
+  .product-list-container {
+    margin-top: 0.2rem;
+  }
+
+  .product-item {
+    padding: 0.3rem 0.4rem 0.4rem 0.4rem;
+    margin-bottom: 0.02rem;
+    background: #fff;
+    &:active {
+      background: @link-active-bg;
+    }
+    .product-top {
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+
+      .title {
+        color: @color-main;
+        font-size: 0.28rem;
+        display: inline-block;
+        margin-right: 0.2rem;
+      }
+
+      .novice {
+        display: inline-block;
+        padding: 0.03rem 0.08rem;
+        color: @color-primary;
+        border: 1px solid @color-primary;
+        font-size: 0.24rem;
+        border-radius: 0.04rem;
+      }
+    }
+    .product-props {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      .temp {
+        height: 1.1rem;
+        overflow: hidden;
+        position: relative;
+        .text {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      .year-count {
+        width: 30%;
+        flex: 1;
+        .num {
+          color: @color-primary;
+          font-size: 0.64rem;
+          line-height: 0.64rem;
+          font-weight: bold;
+          .unit {
+            font-size: 0.4rem;
+          }
+        }
+
+        .text {
+          font-size: 0.24rem;
+          color: @color-sub;
+        }
+      }
+
+      .day-count {
+        width: 30%;
+        flex: 1;
+
+        .num {
+          color: @color-main;
+          font-size: 0.4rem;
+          position: relative;
+          top: 0.15rem;
+          font-weight: bold;
+          .unit {
+            font-size: 0.24rem;
+          }
+        }
+
+        .text {
+          font-size: 0.24rem;
+          color: @color-sub;
+        }
+      }
+
+      .status {
+        color: @color-sub-main;
+        .font28();
+        line-height: 1.1rem;
+      }
+    }
+  }
+
+  .bottom-tips {
+    padding-top: 0.4rem;
+  }
+}

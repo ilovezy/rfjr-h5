@@ -1,0 +1,45 @@
+@import "../../../assets/styles/common/variables";
+
+.open-bank-page {
+  .btn-wrap {
+    padding: 0.4rem;
+    padding-bottom: 0;
+  }
+
+  .select-item-wrap {
+    .select-item {
+      display: inline-block;
+      background: #fff;
+      border-bottom: 0.02rem solid @link-active-bg;
+      width: 100%;
+      text-align: center;
+      padding: 0.4rem;
+      &:active {
+        background: @link-active-bg;
+      }
+    }
+
+    &.bank-select {
+      .select-item {
+        .top {
+          .flex-center();
+          margin-bottom: 0.2rem;
+          color: #292929;
+          font-size: 0.32rem;
+          .img-select-bank {
+            width: 0.38rem;
+            margin-right: 0.05rem;
+          }
+        }
+
+        .bottom {
+          .flex-center();
+          font-size: 0.28rem;
+          line-height: 0.28rem;
+          color: @color-sub;
+        }
+      }
+    }
+
+  }
+}

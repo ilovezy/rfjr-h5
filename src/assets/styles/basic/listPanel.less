@@ -1,0 +1,25 @@
+.simple-panel {
+  margin-top: 0.2rem;
+
+  .panel-title {
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    padding: 0 0.4rem;
+    color: @color-main;
+    font-size: 0.32rem;
+    position: relative;
+    background: #fff;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0.04rem;
+      height: 0.32rem;
+      display: inline-block;
+      background: @color-main;
+    }
+  }
+}

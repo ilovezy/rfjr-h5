@@ -1,0 +1,94 @@
+@import "../../../assets/styles/common/variables";
+@import "../../../assets/styles/common/mixins";
+
+.navbar {
+  height: @navbar-height;
+  position: relative;
+  display: flex;
+  background: #fff;
+  border-bottom: 0.02rem solid #F5F7FB;
+  box-sizing: border-box;
+  &.navbar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: @base-zindex * 100;
+  }
+
+  &.navbar-large {
+    height: 1rem;
+
+    .navbar-item > a {
+      height: 1rem!important;
+    }
+
+    .navbar-item-right {
+      color: @color-sub;
+      font-size: 0.36rem;
+    }
+  }
+
+  .navbar-right-sm {
+    .font28();
+  }
+}
+
+.navbar-item {
+  width: (100% - @navbar-center-width) / 2;
+  padding: 0 @body-padding-vertical / 1.2;
+  font-size: @navbar-item-fontsize;
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  color: inherit;
+  &:first-child {
+    order: 1;
+    font-size: 0;
+    margin-right: -(100% - @navbar-center-width) / 2;
+  }
+  &:last-child {
+    order: 3;
+    justify-content: flex-end;
+    > a {
+      justify-content: flex-end;
+    }
+  }
+  > a {
+    display: flex;
+    align-items: center;
+    height: @navbar-height;
+    min-width: (100% - @navbar-center-width) / 2; /* for low version android */
+    flex: 1;
+  }
+}
+
+.navbar-center {
+  order: 2;
+  height: @navbar-height;
+  width: @navbar-center-width;
+  margin-left: (100% - @navbar-center-width) / 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.32rem;
+  line-height: 0.32rem;
+  font-weight: 500;
+}
+
+.navbar-item-right {
+  color: @color-main;
+  font-size: 0.32rem;
+  padding-right: 0.4rem;
+}
+
+.back-icon {
+  width: 0.2rem;
+  display: inline-block;
+  z-index: 100;
+  position: relative;
+}

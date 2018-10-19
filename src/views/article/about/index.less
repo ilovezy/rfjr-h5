@@ -1,0 +1,65 @@
+@import "../../../assets/styles/common/variables";
+
+.about-us-page {
+  .scrollview:after {
+    height: 0;
+  }
+  .about-us-container {
+    padding: 0.4rem;
+    padding-top: 4rem;
+    background: url('./img/bg@3x.png') no-repeat center;
+    background-size: 100%;
+    background-position: top;
+
+    .about-panel{
+      padding: 0.6rem 0.4rem 0.4rem;
+      display: inline-block;
+      box-sizing: border-box;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.8);
+      position: relative;
+      margin-bottom: 0.8rem;
+      box-shadow: 0 10px 20px #e2e2e2;
+
+      .man {
+        position: absolute;
+        width: 0.6rem;
+        top: -0.8rem;
+        right: 1.2rem;
+      }
+
+      header {
+        display: flex;
+        margin-bottom: 0.4rem;
+        .icon {
+          width: 0.6rem;
+          height: 0.6rem;
+          margin-right: 0.24rem;
+        }
+        .text {
+          color: @color-main;
+          .font36();
+          position: relative;
+          padding-top: 0.02rem;
+          font-weight: 500;
+          &:before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0.6rem;
+            height: 0.04rem;
+            background: #F95439;
+          }
+        }
+      }
+
+      section {
+        color: @color-main;
+        .font28();
+        line-height: 0.5rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,147 @@
+@import "../../assets/styles/common/variables";
+
+.account-page {
+
+  .account-basic-container {
+    height: 4rem;
+    position: relative;
+    background: url("./img/bg.jpg") no-repeat bottom;
+    background-size: 100%;
+    .flex();
+    padding: 0 20px;
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      border: 2px solid #fff;
+      background: #fff;
+    }
+
+    .basic-info {
+      color: #fff;
+      padding-left: 20px;
+
+      .basic-info-item {
+        padding: 5px 0;
+      }
+    }
+  }
+
+  .bottom-container {
+    .flex-around();
+    text-align: center;
+    background: #fff;
+    .bottom-item {
+      padding: 10px;
+
+      .number {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      .text {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .is-login {
+    .account-basic-container {
+      padding: 0.4rem;
+      .avatar {
+        display: flex;
+        align-items: center;
+        img {
+          width: 0.5rem;
+          margin-right: 0.2rem;
+        }
+
+        .name {
+          color: #fff;
+        }
+      }
+    }
+
+    .grid {
+      margin-top: 0.8rem;
+      color: #fff;
+      .text {
+        margin-bottom: 0.3rem;
+        font-size: 0.28rem;
+        line-height: 0.28rem;
+      }
+      .num {
+        font-size: 0.4rem;
+        line-height: 0.4rem;
+        font-weight: bold;
+
+        &.num-lg {
+          font-size: 0.6rem;
+          line-height: 0.6rem;
+        }
+      }
+      &.grip-top {
+        .text {
+          display: flex;
+          align-items: center;
+          .spe-eye {
+            display: inline-block;
+            width: 0.3rem;
+            margin-left: 0.15rem;
+          }
+        }
+      }
+
+      &.grid-bottom {
+        .flex-between();
+
+        .grid-item {
+          flex: 1;
+
+          &.right {
+            padding-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .grid-btns-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    .item {
+      flex: 1;
+      height: 1rem;
+      line-height: 1rem;
+      font-size: 0.32rem;
+      text-align: center;
+      font-weight: 500;
+      color: @color-sub;
+      position: relative;
+      &:active {
+        background: @link-active-bg;
+      }
+      &.item-first {
+        &:after {
+          content: '';
+          width: 0.02rem;
+          height: 0.36rem;
+          background: red;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+
+  .bottom-tips {
+    padding: 0.4rem;
+  }
+}

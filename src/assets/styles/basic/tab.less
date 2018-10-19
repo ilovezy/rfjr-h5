@@ -1,0 +1,101 @@
+@import "../common/variables";
+
+.tab-nav-withback {
+  width: 100%;
+  background: #fff;
+  padding: 0 1rem;
+  position: fixed;
+  height: 1rem;
+  z-index: 100;
+
+  .back-icon-wrap {
+    position: absolute;
+    top: 0;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    left: 0;
+    padding-left: 0.4rem;
+    z-index: 2;
+    width: 1rem;
+    .back-img {
+      width: 0.2rem;
+    }
+  }
+
+  .vux-tab-wrap {
+    height: 1rem;
+    .vux-tab-container {
+      height: 1rem;
+      .vux-tab {
+        height: 1rem;
+        .vux-tab-item {
+          height: 1rem;
+          line-height: 1rem;
+          color: #404D5C;
+          font-size: 0.32rem;
+          background: none;
+        }
+      }
+    }
+
+    .vux-tab-ink-bar {
+      bottom: 0.04rem;
+    }
+  }
+}
+
+.tab-panel-withwrap {
+  top: 1rem;
+  height: calc(90%);
+}
+.vux-tab-selected {
+  color: @color-main!important;
+}
+.tab-sm {
+  @tab-sm-height: 0.88rem;
+  height: @tab-sm-height;
+  position: fixed!important;
+  top: @tab-sm-height;
+  width: 100%;
+  z-index: 100;
+  .vux-tab-container {
+    height: @tab-sm-height;
+    .vux-tab {
+      height: @tab-sm-height;
+      .vux-tab-item {
+        flex: 0 0 20%;
+        height: @tab-sm-height;
+        line-height: @tab-sm-height;
+        color: #404D5C;
+        font-size: 0.32rem;
+        background: none;
+      }
+    }
+  }
+
+  .vux-tab-ink-bar {
+    bottom: 0.04rem;
+  }
+
+  &.tab-justify{
+    .vux-tab-item {
+      flex: 1!important;
+    }
+  }
+}
+
+.tab-panel-sm {
+  height: 100%;
+
+  .vux-swiper {
+    height: calc(100%)!important;
+    top: 0.88rem;
+  }
+}
+
+.vux-slider > .vux-swiper > .vux-swiper-item {
+  overflow-y: auto;
+  height: 100%;
+  padding-bottom: 1rem;
+}

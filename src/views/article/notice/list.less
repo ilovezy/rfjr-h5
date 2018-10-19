@@ -1,0 +1,39 @@
+@import "../../../assets/styles/common/variables";
+
+.notice-list-page {
+  .article-list {
+    position: relative;
+    margin-top: 0.2rem;
+  }
+  .article-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.3rem 0.4rem;
+    margin-bottom: 0.02rem;
+    background: #fff;
+
+    &:active {
+      background: @link-active-bg;
+    }
+
+    .left {
+      .title {
+        color: @color-main;
+        font-size: 0.32rem;
+        margin-bottom: 0.2rem;
+        padding-right: 0.5rem;
+      }
+      time {
+        color: @color-sub;
+        font-size: 0.28rem;
+      }
+    }
+
+    .right {
+      img {
+        width: 0.12rem;
+      }
+    }
+  }
+}

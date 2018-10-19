@@ -1,0 +1,123 @@
+@import "../../assets/styles/common/variables";
+
+.product-detail-page {
+  padding-bottom: 0.88rem;
+  background: #fff;
+  .product-basic {
+    height: 4.2rem;
+    background: url("/static/images/proudct/product-bg.png") no-repeat bottom;
+    background-size: 100%;
+    position: relative;
+    overflow: hidden;
+
+    .novice {
+      display: inline-block;
+      padding: 0.03rem 0.08rem;
+      color: @color-primary;
+      border: 1px solid @color-primary;
+      font-size: 0.24rem;
+      border-radius: 0.04rem;
+      position: absolute;
+      top: 0.2rem;
+      right: 0.4rem;
+    }
+
+    .grid {
+      margin-top: 0.5rem;
+      text-align: center;
+      &.grid-top {
+        margin-top: 0.8rem!important;
+      }
+
+      .text {
+        font-size: 0.28rem;
+        line-height: 0.28rem;
+        color: @color-sub;
+      }
+      .num {
+        font-size: 0.5rem;
+        line-height: 0.5rem;
+        font-weight: bold;
+        color: @color-main;
+        margin-bottom: 0.2rem;
+        .unit {
+          font-size: 0.24rem;
+          line-height: 0.24rem;
+        }
+
+        &.num-lg {
+          color: @color-primary;
+          font-size: 1rem;
+          line-height: 1rem;
+          .unit {
+            font-size: 0.6rem;
+            line-height: 0.6rem;
+          }
+        }
+      }
+
+      &.grid-bottom {
+        .flex-between();
+
+        .grid-item {
+          flex: 1;
+
+          &.right {
+            padding-left: 1rem;
+          }
+        }
+      }
+    }
+
+  }
+
+  .novice-bar {
+    .font28();
+    color: @color-info;
+    padding: 0.25rem 0.4rem;
+    background: #EFF2F7;
+  }
+
+  .product-progress-info {
+    background: #fff;
+    padding: 0.4rem;
+
+    .bottom-info {
+      .item {
+        display: flex;
+        font-size: 0.28rem;
+        line-height: 0.28rem;
+        margin-top: 0.3rem;
+        .label {
+          margin-right: 0.4rem;
+        }
+
+        .right-info {
+          width: 5rem;
+          color: @color-sub;
+          .progress {
+            display: flex;
+            align-items: center;
+
+            .progressbar {
+              display: inline-block;
+              width: 2.5rem;
+              margin-right: 0.2rem;
+            }
+          }
+
+          .info {
+            margin-top: 0.1rem;
+            margin-bottom: 0.1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .bottom-tips {
+    width: 100%;
+    margin-top: 1rem;
+    text-align: center;
+  }
+}

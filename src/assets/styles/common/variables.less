@@ -1,0 +1,170 @@
+/**
+ * Component:	Variables
+ * Description:	Define all variables
+*/
+//======== 【iconfont】 ========
+@iconfont-inlay: 'iconfont';
+
+// default setting
+@color-primary: #4797f0;
+@color-danger: #F04447;
+@color-info: #4E95FF;
+@color-main: #32363C;
+@color-sub-main: #565C63;
+@color-sub: #848A93;
+
+//======== 【global】 ========
+@base-zindex: 1;
+@body-bg: #F5F7FB;
+@link-active-bg: #F5F7FB;
+@border-color: #F5F7FB;
+@body-padding-vertical: .3rem;
+@body-padding-bottom: .5rem;
+@line-color: #DEE3EC;
+@line-high-color: @line-color;
+@max-width: 100%;
+@min-width: 100%;
+
+//======== 【button】 ========
+@btn-radius: .08rem;
+@btn-fontsize: .32rem;
+@btn-height: .8rem;
+@btn-default-color: #fff;
+@btn-block-radius: .12rem;
+@btn-block-fontsize: .34rem;
+@btn-block-height: .88rem;
+@btn-block-margin-top: .5rem;
+@btn-primary-bg: @color-primary;
+@btn-danger-bg: #F04447;
+@btn-warning-bg: #ffb400;
+@btn-disabled-bg: #cfd3d9;
+@btn-disabled-color: #fff;
+@btn-hollow-bg: #fff;
+@btn-hollow-color: #454545;
+@btn-hollow-border-color: #eaeaea;
+
+//======== 【cell】 ========
+@cell-title-fontsize: .26rem;
+@cell-title-color: #666;
+@cell-height: .88rem;
+@cell-left-color: #333;
+@cell-left-fontsize: .28rem;
+@cell-right-color: #333;
+@cell-right-fontsize: .28rem;
+@cell-input-color: #333;
+@cell-input-fontsize: .28rem;
+@cell-icon-fontsize: .42rem;
+@cell-select-color: #333;
+@cell-select-fontsize: @cell-left-fontsize;
+@cell-arrow-color: #c9c9c9;
+@cell-arrow-fontsize: .28rem;
+
+//======== 【grids】 ========
+@grids-fontsize: .28rem;
+@grids-color: #666;
+@grids-bg: #fff;
+@grids-padding-horizontal: .35rem;
+@grids-line-color: @line-color;
+@grids-line-high-color: @line-high-color;
+
+//======== 【navbar】 ========
+@navbar-height: .88rem;
+@navbar-bg: rgba(255, 255, 255, .98);
+@navbar-center-width: 50%;
+@navbar-center-fontsize: .34rem;
+@navbar-center-color: #666;
+@navbar-item-fontsize: .3rem;
+@navbar-item-color: #666;
+@navbar-icon-color: @navbar-item-color;
+@navbar-icon-fontsize: .42rem;
+@navbar-border-color: rgba(255, 255, 255, 0.7);
+
+//======== 【tabbar】 ========
+@tabbar-bg: rgba(255, 255, 255, .96);
+@tabbar-border-color: #bbb;
+@tabbar-color: #bbb;
+@tabbar-text-fontsize: .24rem;
+@tabbar-icon-fontsize: .5rem;
+
+//======== 【actionsheet】 ========
+@actionsheet-bg: #efeff4;
+@actionsheet-item-height: .8rem;
+@actionsheet-item-bg: #fff;
+@actionsheet-item-fontsize: .28rem;
+@actionsheet-item-color: #555;
+@actionsheet-item-border-color: @line-color;
+@actionsheet-action-height: .8rem;
+@actionsheet-action-bg: @actionsheet-item-bg;
+@actionsheet-action-fontsize: @actionsheet-item-fontsize;
+@actionsheet-action-color: @actionsheet-item-color;
+
+@text-color-primary: @color-primary;
+
+
+// font-size
+.font24 {
+  font-size: 0.24rem;
+  line-height: 0.24rem;
+}
+
+.font28 {
+  font-size: 0.28rem;
+  line-height: 0.28rem;
+}
+
+.font32 {
+  font-size: 0.32rem;
+  line-height: 0.32rem;
+}
+.font34 {
+  font-size: 0.34rem;
+  line-height: 0.34rem;
+}
+.font36 {
+  font-size: 0.36rem;
+  line-height: 0.36rem;
+}
+
+.font40 {
+  font-size: 0.4rem;
+  line-height: 0.4rem;
+}
+
+// 标准flex 逼不得已
+.flex() {
+  display: flex;
+  align-items: center;
+}
+
+.flex-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-around() {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.round(@size: 0.5rem) {
+  display: inline-block;
+  width: @size;
+  height: @size;
+  border-radius: @size;
+  font-size: 0;
+}
+
+.grey-border-top(){
+  border-top: 0.02rem solid @border-color;
+}
+.grey-border-bottom(){
+  border-bottom: 0.02rem solid @border-color;
+}

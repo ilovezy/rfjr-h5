@@ -1,0 +1,96 @@
+.protocol-group {
+  margin-bottom: -0.2rem;
+  padding: 0.15rem 0.3rem 0.3rem;
+  background-color: #fff;
+}
+.protocol-header {
+  padding: 0.3rem;
+  font-size: 0.32rem;
+  text-align: center;
+}
+.protocol-body {
+  line-height: 1.5;
+  color: #555;
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  h2 {
+    color: #333;
+    line-height: 0.8rem;
+  }
+  strong {
+    color: #333;
+  }
+  ul {
+    list-style: decimal;
+    padding-left: 0.36rem;
+    li {
+      padding-bottom: 0.15rem;
+      &:last-child {
+        padding-bottom: 0;
+      }
+      ul {
+        list-style: lower-alpha;
+        padding-top: 0.15rem;
+        ul {
+          list-style: disc;
+          padding-left: 0.3rem;
+        }
+      }
+      p {
+        padding-top: 0.15rem;
+      }
+    }
+  }
+  p {
+    text-indent: 2em;
+    margin-bottom: 0.15rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+.protocol-special {
+  padding-top: 0.2rem;
+}
+.protocol-line {
+  padding: 0.2rem 0;
+  text-align: center;
+  color: #888;
+}
+.protocol-table {
+  margin-top: 0.15rem;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  border-spacing: 0;
+  &.attachment {
+    margin: 0;
+  }
+  tr {
+    th, td {
+      padding: 0.15rem;
+      border: 1px solid #999;
+      text-align: left;
+    }
+  }
+}
+.signed-table {
+  margin-top: 0;
+  width: 100%;
+  th, td {
+    width: 50%;
+    padding: 0.15rem;
+    text-align: left;
+    & img {
+      max-width: 100%;
+    }
+  }
+  th {
+    font-weight: bold;
+  }
+  td {
+    padding-bottom: 0.3rem;
+  }
+}
