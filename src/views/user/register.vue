@@ -50,20 +50,6 @@
                   type="warning"
                   v-else></sendcode>
       </div>
-
-      <div class='form-item form-item-special'
-           :class='!showReference && "form-sm"'>
-        <input type="tel"
-               class='form-control'
-               maxlength="16"
-               :placeholder="showReference ? '请输入邀请人手机号(非必填项)' : '邀请人' "
-               @focus='toggleReference'
-               v-model.trim="inviteCode">
-        <img class='pwd-icon'
-             v-if='!showReference'
-             @click='toggleReference'
-             src='/static/images/common/arrow-down.png'/>
-      </div>
     </div>
 
     <div class='btn btn-primary btn-block'
@@ -87,8 +73,6 @@
         captchaContent: '', // 正式验证码
         sendCodeStart: false,
         second: 60,
-
-        inviteCode: '', // 邀请人手机号
 
         showPassword: false,
         showReference: false
