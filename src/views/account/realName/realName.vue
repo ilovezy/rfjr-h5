@@ -123,7 +123,8 @@
       registerSuccess(res) {
         if (res) {
           this.$dialog.toast({mes: '实名认证成功'});
-          this.goBack()
+          setTimeout(() => {this.goBack()}, 1000)
+
         }
       }
     }

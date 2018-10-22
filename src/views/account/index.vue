@@ -10,7 +10,7 @@
 
         <div class='basic-info'>
           <div class='basic-info-item'>登录账户：{{name}}</div>
-          <div class='basic-info-item'>交易账户：{{bindCardFlag ? '' : '未开户'}}</div>
+          <div class='basic-info-item'>交易账户：{{openAccountFlag ? '' : '未开户'}}</div>
         </div>
       </div>
 
@@ -29,6 +29,18 @@
 
     <div class='simple-panel'>
       <simple-list-item
+        link='/realName'
+        icon='icon-about.png'
+        :title="realNameFlag ? '实名认证 (已认证)' : '实名认证'"/>
+      <simple-list-item
+        @click.native='goTarget("/recharge")'
+        icon='icon-brorrow.png'
+        title='充值'/>
+      <simple-list-item
+        @click.native='goTarget("/withdraw", "yes")'
+        icon='icon-brorrow.png'
+        title='提现'/>
+      <simple-list-item
         link='/loanRecord'
         icon='icon-brorrow.png'
         title='我要出金'/>
@@ -44,21 +56,20 @@
 
     <div class='simple-panel'>
       <simple-list-item
-        link='/realName'
-        icon='icon-about.png'
-        :title="realNameFlag ? '实名认证 (已认证)' : '实名认证'"/>
-      <simple-list-item
-        link='/setting'
+        @click.native='goTarget("/bindBankCard")'
         icon='icon-setting.png'
-        title='设置登录密码'/>
-      <simple-list-item
-        link='/bindBankCard'
-        icon='icon-setting.png'
-        title='绑定银行卡'/>
+        :title="realNameFlag ? '绑定银行卡 (已绑定)' : '绑定银行卡'"/>
       <simple-list-item
         link='/landing/inviteFriend'
         icon='icon-setting.png'
         title='出入金密码'/>
+    </div>
+
+    <div class='simple-panel'>
+      <simple-list-item
+        link='/changePassword'
+        icon='icon-setting.png'
+        title='修改登录密码'/>
       <simple-list-item
         @click.native='logout'
         icon='icon-brorrow.png'
@@ -85,6 +96,50 @@
     },
 
     methods: {
+      goTarget(link, needBandCard) {
+        if (this.realNameFlag) {
+          if (needBandCard && !this.bindCardFlag) {
+            this.$dialog.confirm({
+              title: '提示',
+              mes: '<div style="line-height: 0.5rem">请先绑定银行卡卡才能提现</div> ',
+              opts: [
+                {
+                  txt: '取消',
+                  color: false
+                },
+                {
+                  txt: '前往绑卡',
+                  color: true,
+                  callback: () => {
+                    this.$router.push('/bindBankCard')
+                  }
+                }
+              ]
+            })
+          } else {
+            this.$router.push(link)
+          }
+        } else {
+          this.$dialog.confirm({
+            title: '提示',
+            mes: '<div style="line-height: 0.5rem">请先实名认证再进行操作</div> ',
+            opts: [
+              {
+                txt: '取消',
+                color: false
+              },
+              {
+                txt: '前往实名',
+                color: true,
+                callback: () => {
+                  this.$router.push('/realName')
+                }
+              }
+            ]
+          })
+        }
+      },
+
       getToken() {
         if (USER.isLogin()) {
           this.getAccount()
