@@ -11,7 +11,7 @@ window.CONFIG = {
     'development': '//10.60.30.69:9001/',   // 王延吉
   },
 
-  openVconsole: false,
+  openVconsole: true,
 
   serviceParam: {
     clientName: 'web',

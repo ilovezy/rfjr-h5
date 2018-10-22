@@ -4,11 +4,13 @@
                :class='disabled && "no-hover"'
                v-if='link'>
     <div class='left'>
-      <img :src='iconUrl'
-           v-if='iconUrl'
-           class='icon'
-           alt=''>
+      <span class='iconfont'
+            :class='icon'
+            v-if='icon'></span>
       <span class='title'>{{title}}</span>
+      <span v-if='success'
+            style='font-size: 12px; color: green;margin-left: 10px;'
+            class='iconfont icon-cces-Red-Iconfont-copy'></span>
     </div>
     <span class='right-text'
           v-if='rightText'>
@@ -34,11 +36,14 @@
        :class='disabled && "no-hover"'
        v-else>
     <div class='left'>
-      <img :src='iconUrl'
-           v-if='iconUrl'
-           class='icon'
-           alt=''>
+      <span class='iconfont'
+            :class='icon'
+            v-if='icon'
+            style=''></span>
       <span class='title'>{{title}}</span>
+      <span v-if='success'
+            style='font-size: 12px; color: green;margin-left: 10px;'
+            class='iconfont icon-cces-Red-Iconfont-copy'></span>
     </div>
     <span class='right-text'
           v-if='rightText'>
@@ -70,7 +75,8 @@
       rightTextPrimary: '',
       link: '',
       disabled: false,
-      arrowText: ''
+      arrowText: '',
+      success: false
     },
 
     computed: {
@@ -111,10 +117,11 @@
       align-items: center;
       color: @color-main;
       font-size: 0.28rem;
-      .icon {
+      .iconfont {
+        font-size: 16px;
+        margin-right: 6px;
         display: inline-block;
-        width: 0.34rem;
-        margin-right: 0.26rem;
+        width: 0.36rem;
       }
     }
 

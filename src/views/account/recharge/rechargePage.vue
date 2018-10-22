@@ -2,10 +2,10 @@
   <layout class="recharge-page user-form">
     <navbar :large='true'
             slot="navbar">
-      <span slot="center">会员充值</span>
+      <span slot="center">我要入金</span>
     </navbar>
     <div class='title'>
-      会员充值
+      我要入金
     </div>
 
     <div class='form-body'>
@@ -14,12 +14,12 @@
                class='form-control'
                style='width: 100%;'
                maxlength="10"
-               placeholder="充值金额"
+               placeholder="入金金额"
                v-model.number="amount">
       </div>
     </div>
     <div class='btn btn-primary btn-block'
-         @click="validForm">确定充值
+         @click="validForm">确定入金
     </div>
   </layout>
 </template>
@@ -52,7 +52,7 @@
 
       validForm() {
         if (!this.amount) {
-          this.$dialog.toast({mes: '请输入充值金额'});
+          this.$dialog.toast({mes: '请输入入金金额'});
           return
         }
         this.doConfirm()
@@ -61,7 +61,7 @@
       //提交注册
       doConfirm() {
         const self = this
-        this.$dialog.loading.open('充值中，请稍后...')
+        this.$dialog.loading.open('入金中，请稍后...')
         this.axios.post('/api/member/recharge', {
           amount: this.amount,
         }).then(res => {
@@ -71,7 +71,7 @@
 
       registerSuccess(res) {
         if (res) {
-          this.$dialog.toast({mes: '充值成功'});
+          this.$dialog.toast({mes: '入金成功'});
           setTimeout(() => {this.goBack()}, 1000)
         }
       }

@@ -48,6 +48,7 @@
         loginName: '',
         password: '',
         showPassword: false,
+        inviteId: ''
       }
     },
     computed: {
@@ -56,9 +57,14 @@
       // }
     },
     created() {
+      this.setInviteId()
       this.islogin()
     },
     methods: {
+      setInviteId(){
+        let query = this.$route.query || {}
+        this.inviteId = query.inviteId || ''
+      },
       togglePassword() {
         this.showPassword = !this.showPassword
       },
@@ -89,10 +95,14 @@
       doRegister() {
         const self = this
         this.$dialog.loading.open('注册中请稍后...')
-        this.axios.post('/security/api/member/register', {
+        let param = {
           loginName: this.loginName,
           password: this.password,
-        }).then(res => {
+        }
+        if (this.inviteId){
+          param.inviteId = this.inviteId
+        }
+        this.axios.post('/security/api/member/register', param).then(res => {
           self.registerSuccess(res)
         })
       },

@@ -16,12 +16,12 @@
 
       <div class='bottom-container'>
         <div class='bottom-item'>
-          <div class='number'>{{balance}}</div>
+          <div class='number'>{{balance | formatThousands}}</div>
           <div class='text'>金额</div>
         </div>
 
         <div class='bottom-item'>
-          <div class='number'>{{availableBalance}}</div>
+          <div class='number'>{{availableBalance | formatThousands}}</div>
           <div class='text'>可用金额</div>
         </div>
       </div>
@@ -30,49 +30,47 @@
     <div class='simple-panel'>
       <simple-list-item
         link='/realName'
-        icon='icon-about.png'
-        :title="realNameFlag ? '实名认证 (已认证)' : '实名认证'"/>
+        icon='icon-s111himingrenzheng-copy'
+        :success='realNameFlag'
+        title="实名认证"/>
       <simple-list-item
-        @click.native='goTarget("/recharge")'
-        icon='icon-brorrow.png'
-        title='充值'/>
-      <simple-list-item
-        @click.native='goTarget("/withdraw", "yes")'
-        icon='icon-brorrow.png'
-        title='提现'/>
-      <simple-list-item
-        link='/loanRecord'
-        icon='icon-brorrow.png'
-        title='我要出金'/>
-      <simple-list-item
-        link='/moneyRecord'
-        icon='icon-record.png'
-        title='入金记录'/>
-      <simple-list-item
-        link='/myRedPackage'
-        icon='icon-redpackage.png'
-        title='出金记录'/>
+        @click.native='goTarget("/bindBankCard")'
+        icon='icon-1malingshuxiangmuicon-'
+        :success='bindCardFlag'
+        title="绑定银行卡"/>
     </div>
 
     <div class='simple-panel'>
       <simple-list-item
-        @click.native='goTarget("/bindBankCard")'
-        icon='icon-setting.png'
-        :title="realNameFlag ? '绑定银行卡 (已绑定)' : '绑定银行卡'"/>
+        @click.native='goTarget("/recharge")'
+        icon='icon-chongzhi2'
+        title='我要入金'/>
       <simple-list-item
-        link='/landing/inviteFriend'
-        icon='icon-setting.png'
-        title='出入金密码'/>
+        @click.native='goTarget("/rechargeList")'
+        icon='icon-jilu1-copy'
+        title='入金记录'/>
+      <simple-list-item
+        @click.native='goTarget("/withdraw", "yes")'
+        icon='icon-tixian3'
+        title='我要出金'/>
+      <simple-list-item
+        @click.native='goTarget("/withdrawList", "yes")'
+        icon='icon-jilu1-copy'
+        title='出金记录'/>
+      <!--<simple-list-item-->
+        <!--link='/landing/inviteFriend'-->
+        <!--icon='icon-setting.png'-->
+        <!--title='出入金密码'/>-->
     </div>
 
     <div class='simple-panel'>
       <simple-list-item
         link='/changePassword'
-        icon='icon-setting.png'
+        icon='icon-xiugai-1'
         title='修改登录密码'/>
       <simple-list-item
         @click.native='logout'
-        icon='icon-brorrow.png'
+        icon='icon-logout23'
         title='退出登录'/>
     </div>
   </layout>
@@ -96,12 +94,15 @@
     },
 
     methods: {
+      formatThousands: function (num) {
+        return (+num || 0).toString().replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
+      },
       goTarget(link, needBandCard) {
         if (this.realNameFlag) {
           if (needBandCard && !this.bindCardFlag) {
             this.$dialog.confirm({
               title: '提示',
-              mes: '<div style="line-height: 0.5rem">请先绑定银行卡卡才能提现</div> ',
+              mes: '<div style="line-height: 0.5rem">请先绑定银行卡再进行操作</div> ',
               opts: [
                 {
                   txt: '取消',
