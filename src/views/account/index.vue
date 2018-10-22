@@ -9,26 +9,20 @@
         </div>
 
         <div class='basic-info'>
-          <div class='basic-info-item'>登录账户：18768143328</div>
-          <div class='basic-info-item'>用户编号：18768143328</div>
-          <div class='basic-info-item'>交易账户：18768143328</div>
+          <div class='basic-info-item'>登录账户：{{name}}</div>
+          <div class='basic-info-item'>交易账户：{{bindCardFlag ? '' : '未开户'}}</div>
         </div>
       </div>
 
       <div class='bottom-container'>
         <div class='bottom-item'>
-          <div class='number'>0</div>
-          <div class='text'>劣后金额（USD）</div>
+          <div class='number'>{{balance}}</div>
+          <div class='text'>金额</div>
         </div>
 
         <div class='bottom-item'>
-          <div class='number'>0</div>
-          <div class='text'>优先资金（USD）</div>
-        </div>
-
-        <div class='bottom-item'>
-          <div class='number'>0</div>
-          <div class='text'>当前权益（USD）</div>
+          <div class='number'>{{availableBalance}}</div>
+          <div class='text'>可用金额</div>
         </div>
       </div>
     </div>
@@ -50,9 +44,9 @@
 
     <div class='simple-panel'>
       <simple-list-item
-        link='/article/about'
+        link='/realName'
         icon='icon-about.png'
-        title='实名认证'/>
+        :title="realNameFlag ? '实名认证 (已认证)' : '实名认证'"/>
       <simple-list-item
         link='/setting'
         icon='icon-setting.png'
@@ -78,9 +72,12 @@
   export default {
     data() {
       return {
-        openBank: true,
-        loginName: '',
-        showNum: true
+        availableBalance: 0,
+        balance: 0,
+        bindCardFlag: false,
+        name: '',
+        openAccountFlag: false,
+        realNameFlag: false,
       }
     },
     created() {
@@ -91,31 +88,30 @@
       getToken() {
         if (USER.isLogin()) {
           this.getAccount()
-          this.loginName = USER.getLoginName()
         } else {
           USER.logout()
           this.$router.push('/login')
         }
       },
 
+      getAccount() {
+        this.axios.post('/api/member/center').then(res => {
+          this.availableBalance = res.availableBalance
+          this.balance = res.balance
+          this.bindCardFlag = res.bindCardFlag
+          this.name = res.name
+          this.openAccountFlag = res.openAccountFlag
+          this.realNameFlag = res.realNameFlag
+        })
+      },
+
       logout() {
         USER.logout()
         this.$dialog.toast({mes: '退出登录成功！请重新登录'})
-        setTimeout(() =>{
+        setTimeout(() => {
           this.$router.push('/login')
         }, 2000)
       },
-
-      toggleShowNum() {
-        this.showNum = !this.showNum
-      },
-
-      sayFuck() {
-        this.$dialog.toast({mes: 'fuclk TODO'})
-      },
-
-      getAccount() {
-      }
     }
   }
 </script>

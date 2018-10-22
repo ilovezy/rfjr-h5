@@ -15,7 +15,7 @@ if (env == 'development' && CONFIG.openVconsole) {
   let vConsole = new VConsole() // 初始化
 }
 
-let ToastTimeout = 300
+let ToastTimeout = 2000
 let instance = axios.create({
   baseURL: ajaxUrl,
   timeout: 50000,
@@ -27,7 +27,7 @@ instance.interceptors.request.use(config => {
   let clientName = CONFIG.serviceParam.clientName
   let clientSecret = CONFIG.serviceParam.clientSecret
 
-  config.headers.Version = Version
+  // config.headers.Version = Version
 
   if (config.data) {
     config.data.clientName = clientName

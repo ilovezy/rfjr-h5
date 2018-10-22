@@ -7,6 +7,14 @@ let accountRoute = [
     },
     component: resolve => require(['@/views/account'], resolve)
   },
+  {
+    path: '/realName',
+    name: 'realName',//实名认证
+    meta: {
+      title: '实名认证'
+    },
+    component: resolve => require(['@/views/account/realName/realName'], resolve)
+  },
 
   {
     path: '/bindBankCard',
@@ -30,7 +38,7 @@ let accountRoute = [
     path: '/bankAccount',
     name: 'account_bankAccount',
     meta: {
-      title: '银行存管账户',      requireAuth: true
+      title: '银行存管账户', requireAuth: true
 
     },
     component: resolve => require(['@/views/account/openBank/bankAccountPage'], resolve)
@@ -39,7 +47,7 @@ let accountRoute = [
     path: '/bankCard',
     name: 'account_bankCard',
     meta: {
-      title: '银行卡',      requireAuth: true
+      title: '银行卡', requireAuth: true
     },
     component: resolve => require(['@/views/account/openBank/bankCardPage'], resolve)
   },
@@ -47,7 +55,7 @@ let accountRoute = [
     path: '/bidAuth',
     name: 'account_bidAuth',
     meta: {
-      title: '投标授权',      requireAuth: true
+      title: '投标授权', requireAuth: true
     },
     component: resolve => require(['@/views/account/openBank/bidAuthPage'], resolve)
   },
@@ -55,7 +63,7 @@ let accountRoute = [
     path: '/totalAmount',
     name: 'account_totalAmount',
     meta: {
-      title: '账户总额',      requireAuth: true
+      title: '账户总额', requireAuth: true
     },
     component: resolve => require(['@/views/account/totalAmountPage'], resolve)
   },
@@ -63,7 +71,7 @@ let accountRoute = [
     path: '/dueIn',
     name: 'account_dueIn',
     meta: {
-      title: '待收金额',      requireAuth: true
+      title: '待收金额', requireAuth: true
     },
     component: resolve => require(['@/views/account/dueInPage'], resolve)
   },
@@ -71,7 +79,7 @@ let accountRoute = [
     path: '/recharge',
     name: 'account_recharge',
     meta: {
-      title: '充值',      requireAuth: true
+      title: '充值', requireAuth: true
     },
     component: resolve => require(['@/views/account/recharge/rechargePage'], resolve)
   },
@@ -79,7 +87,7 @@ let accountRoute = [
     path: '/rechargeList',
     name: 'account_rechargeList',
     meta: {
-      title: '充值',      requireAuth: true
+      title: '充值', requireAuth: true
     },
     component: resolve => require(['@/views/account/recharge/rechargeListPage'], resolve)
   },
@@ -87,7 +95,7 @@ let accountRoute = [
     path: '/withdraw',
     name: 'account_withdraw',
     meta: {
-      title: '提现',      requireAuth: true
+      title: '提现', requireAuth: true
     },
     component: resolve => require(['@/views/account/withdraw/withdrawPage'], resolve)
   },
@@ -95,7 +103,7 @@ let accountRoute = [
     path: '/withdrawList',
     name: 'account_withdrawList',
     meta: {
-      title: '充值',      requireAuth: true
+      title: '充值', requireAuth: true
     },
     component: resolve => require(['@/views/account/withdraw/withdrawListPage'], resolve)
   },
@@ -103,7 +111,7 @@ let accountRoute = [
     path: '/moneyRecord',
     name: 'account_moneyRecord',
     meta: {
-      title: '资金记录',      requireAuth: true
+      title: '资金记录', requireAuth: true
     },
     component: resolve => require(['@/views/account/moneyRecord/moneyRecordPage'], resolve)
   },
@@ -111,7 +119,7 @@ let accountRoute = [
     path: '/loanRecord',
     name: 'account_loanRecord',
     meta: {
-      title: '出借记录',      requireAuth: true
+      title: '出借记录', requireAuth: true
     },
     component: resolve => require(['@/views/account/loanRecord/loanRecordPage'], resolve)
   },
@@ -119,7 +127,7 @@ let accountRoute = [
     path: '/loanDetail',
     name: 'account_loanDetail',
     meta: {
-      title: '出借记录',      requireAuth: true
+      title: '出借记录', requireAuth: true
     },
     component: resolve => require(['@/views/account/loanRecord/loanDetailPage'], resolve)
   },

@@ -12,10 +12,9 @@
 
     <div class='form-body'>
       <div class='form-item'>
-        <input type="tel"
-               class='form-control'
-               maxlength="11"
-               placeholder="注册手机号"
+        <input class='form-control'
+               maxlength="18"
+               placeholder="账户名"
                v-model="loginName">
       </div>
 
@@ -30,13 +29,12 @@
              :src="showPassword ? '/static/images/common/icon-eye.png' : '/static/images/common/icon-eye-close.png'"/>
       </div>
 
-      <div class="forget-password">
-        <router-link to="forget">忘记密码</router-link>
-      </div>
+      <!--<div class="forget-password">-->
+        <!--<router-link to="forget">忘记密码</router-link>-->
+      <!--</div>-->
     </div>
 
     <div class='btn btn-primary btn-block'
-         :class='btnDisabled && "btn-disabled"'
          @click="doLogin">登录
     </div>
   </layout>
@@ -48,24 +46,17 @@
         loginName: '',
         password: '',
         showPassword: false,
-        channel: ''
       }
     },
     computed: {
-      btnDisabled() {
-        return isNaN(this.loginName) || this.loginName.length !== 11 || this.password.length < 6 || this.password.length > 16
-      }
+      // btnDisabled() {
+      //   return isNaN(this.loginName) || this.password.length < 6 || this.password.length > 16
+      // }
     },
     created() {
-      this.getChannel()
       this.islogin()
     },
     methods: {
-      getChannel() {
-        let temp = urlParse()
-        this.channel = temp.channel || 'h5'
-      },
-
       togglePassword() {
         this.showPassword = !this.showPassword
       },
@@ -81,8 +72,8 @@
       },
 
       validForm() {
-        if (!isValidPhone(this.loginName)) {
-          this.$dialog.toast({mes: '输入的手机号码格式不正确'});
+        if (!isValidUserName(this.loginName)) {
+          this.$dialog.toast({mes: '账号格式不正确，2-18位之间'});
           return false
         } else if (!isValidPassword(this.password)) {
           this.$dialog.toast({mes: '密码格式不正确,为6-16位的字母和数字组合'});
@@ -94,18 +85,15 @@
       doLogin() {
         const self = this
         if (this.validForm()) {
-          // this.$dialog.loading.open('正在登录...');
           this.$dialog.toast({mes: '正在登录...'})
-
-          this.loginSuccess('fuck todo')
-          // this.axios.post('/security/token', {
-          //   loginName: this.loginName,
-          //   password: this.password
-          // }).then(res => {
-          //   if (res.token) {
-          //     self.loginSuccess(res.token)
-          //   }
-          // })
+          this.axios.post('/security/api/member/login', {
+            loginName: this.loginName,
+            password: this.password
+          }).then(res => {
+            if (res) {
+              self.loginSuccess(res)
+            }
+          })
         }
       },
 
@@ -116,7 +104,6 @@
         this.$dialog.toast({mes: '登录成功'})
         setTimeout(() => {
           self.$router.replace({path: '/account'})
-          // self.$router.back()
         }, 1000)
       }
     }

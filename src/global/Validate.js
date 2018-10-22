@@ -28,7 +28,11 @@ window.isValidPhone = function (phone) {
   var tempPhone = Number(phone)
   return /^(((13[0-9]{1})|(14[0-9]{1})||(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/.test(tempPhone)
 }
-
+// 检测正确的账户名 2-18位
+window.isValidUserName = function (phone) {
+  var tempPhone = Number(phone)
+  return /^.{2,18}$/.test(tempPhone)
+}
 // 检测验证码
 window.isValidSmsCode = function (str) {
   return str == '0000' || str.length === 6

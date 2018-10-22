@@ -6,18 +6,16 @@
             slot="right">登录</span>
     </navbar>
 
-
     <div class='title'>
       注册
     </div>
 
     <div class='form-body'>
       <div class='form-item'>
-        <input type="tel"
-               class='form-control'
-               maxlength="11"
-               placeholder="注册手机号"
-               v-model="mobile">
+        <input class='form-control'
+               maxlength="18"
+               placeholder="账户名"
+               v-model="loginName">
       </div>
 
       <div class='form-item'>
@@ -31,29 +29,9 @@
              @click='togglePassword'
              :src="showPassword ? '/static/images/common/icon-eye.png' : '/static/images/common/icon-eye-close.png'"/>
       </div>
-
-      <div class='form-item'>
-        <input type="number"
-               class='form-control'
-               maxlength="6"
-               placeholder="短信验证码"
-               v-model.trim="captchaContent">
-        <button slot="right"
-                class="btn-cell-special -disabled"
-                disabled
-                v-if="mobile.length !== 11">获取验证码
-        </button>
-        <sendcode slot="right"
-                  v-model="sendCodeStart"
-                  @click.native="sendCode"
-                  :second="second"
-                  type="warning"
-                  v-else></sendcode>
-      </div>
     </div>
 
     <div class='btn btn-primary btn-block'
-         :class='btnDisabled && "btn-disabled"'
          @click="validForm">注册
     </div>
     <div class="cell-protocol">注册即代表同意
@@ -67,21 +45,15 @@
   export default {
     data() {
       return {
-        mobile: '',
+        loginName: '',
         password: '',
-        captchaCode: '', // 验证码code
-        captchaContent: '', // 正式验证码
-        sendCodeStart: false,
-        second: 60,
-
         showPassword: false,
-        showReference: false
       }
     },
     computed: {
-      btnDisabled() {
-        return isNaN(this.mobile) || this.mobile.length !== 11 || this.password.length < 6 || this.password.length > 16
-      }
+      // btnDisabled() {
+      //   return isNaN(this.loginName) || this.password.length < 6 || this.password.length > 16
+      // }
     },
     created() {
       this.islogin()
@@ -89,10 +61,6 @@
     methods: {
       togglePassword() {
         this.showPassword = !this.showPassword
-      },
-
-      toggleReference() {
-        this.showReference = true
       },
 
       goBack() {
@@ -105,54 +73,13 @@
         }
       },
 
-      /**
-       * 获取验证码 & 验证
-       */
-      sendCode() {
-        if (!this.mobile) {
-          this.$dialog.toast({mes: '请输入注册手机号'});
-          return
-        } else if (!isValidPhone(this.mobile)) {
-          this.$dialog.toast({mes: '手机号格式不正确'});
-          return
-        } else {
-          this.sendSmsCode()
-        }
-      },
-
-      sendSmsCode() {
-        const self = this
-        self.$dialog.loading.open('验证码发送中...');
-        self.axios.post('/security/sms/register', {
-          mobile: self.mobile
-        }).then(res => {
-          self.$dialog.toast({mes: '验证码发送成功'});
-          self.sendCodeStart = true
-          self.captchaCode = res
-        }).catch(err => {
-          debugger
-        })
-      },
-
       validForm() {
-        if (!isValidPhone(this.mobile)) {
-          this.$dialog.toast({mes: '手机号格式不正确'});
+        if (!isValidUserName(this.loginName)) {
+          this.$dialog.toast({mes: '账号格式不正确，2-18位之间'});
           return
         }
         if (!isValidPassword(this.password)) {
           this.$dialog.toast({mes: '密码格式不正确，长度为6-16位的字母和数字组合'})
-          return
-        }
-        if (!this.captchaCode) {
-          this.$dialog.toast({mes: '请先获取短信验证码'})
-          return
-        }
-        if (!this.captchaContent || !isValidSmsCode(this.captchaContent)) {
-          this.$dialog.toast({mes: '请输入正确的短信验证码'})
-          return
-        }
-        if (this.inviteCode && !isValidPhone(this.inviteCode)) {
-          this.$dialog.toast({mes: '邀请人手机号格式不正确'});
           return
         }
         this.doRegister()
@@ -162,27 +89,19 @@
       doRegister() {
         const self = this
         this.$dialog.loading.open('注册中请稍后...')
-        this.axios.post('/security/register', {
-          mobile: this.mobile,
+        this.axios.post('/security/api/member/register', {
+          loginName: this.loginName,
           password: this.password,
-          captchaCode: this.captchaCode,
-          captchaContent: this.captchaContent,
-          inviteCode: this.inviteCode
         }).then(res => {
           self.registerSuccess(res)
         })
       },
 
       registerSuccess(res) {
-        if (res.token) {
-          USER.setToken(res.token)
-          USER.setLoginName(this.mobile)
-          this.$router.replace({
-            path: '/registerSuccess',
-            query: {
-              totalLenderNum: res.totalLenderNum
-            }
-          })
+        if (res) {
+          this.$dialog.toast({mes: '注册成功'});
+          USER.setToken(res)
+          this.$router.replace('/account')
         }
       }
     }

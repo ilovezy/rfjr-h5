@@ -6,16 +6,16 @@ window.CONFIG = {
     'production': '//api.changfulicai.com/',  //上线构建环境  npm run buildproduction
 
     //热更新开发构建环境 npm run dev
-    'development': '//10.60.10.165:9001/', // dev环境
+    // 'development': '//10.60.10.165:9001/', // dev环境
     // 'development': '//10.60.10.20:9001/',   // 肥虫虫
-    // 'development': '//10.60.30.69:9001/',   // 王延吉
+    'development': '//10.60.30.69:9001/',   // 王延吉
   },
 
   openVconsole: false,
 
   serviceParam: {
-    clientName: 'h5',
-    clientSecret: 'hzg-dev',
+    clientName: 'web',
+    clientSecret: '1qaz2wsx',
     Version: '1.0'
   }
 }
