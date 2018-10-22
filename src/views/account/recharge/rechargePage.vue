@@ -51,30 +51,12 @@
       },
 
       validForm() {
-        if (!this.amount) {
+        if (this.amount) {
+          this.$router.push({path: '/rechargeWay', query: {amount: this.amount}})
+        } else {
           this.$dialog.toast({mes: '请输入入金金额'});
-          return
         }
-        this.doConfirm()
       },
-
-      //提交注册
-      doConfirm() {
-        const self = this
-        this.$dialog.loading.open('入金中，请稍后...')
-        this.axios.post('/api/member/recharge', {
-          amount: this.amount,
-        }).then(res => {
-          self.registerSuccess(res)
-        })
-      },
-
-      registerSuccess(res) {
-        if (res) {
-          this.$dialog.toast({mes: '入金成功'});
-          setTimeout(() => {this.goBack()}, 1000)
-        }
-      }
     }
   }
 </script>

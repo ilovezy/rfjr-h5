@@ -6,6 +6,7 @@
     </navbar>
     <div class='title'>
       实名认证
+      <p style='font-size: 14px; color: #ff4426;margin-top: 5px;'>注释：请您务必填写真实身份信息，如果身份信息与出金银行账户名字不一致，可能会导致无法出金。</p>
     </div>
 
     <div v-if='loading'>
@@ -123,7 +124,9 @@
       registerSuccess(res) {
         if (res) {
           this.$dialog.toast({mes: '实名认证成功'});
-          setTimeout(() => {this.goBack()}, 1000)
+          setTimeout(() => {
+            this.goBack()
+          }, 1000)
 
         }
       }

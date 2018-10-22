@@ -83,6 +83,14 @@ let accountRoute = [
     },
     component: resolve => require(['@/views/account/recharge/rechargePage'], resolve)
   },
+ {
+    path: '/rechargeWay',
+    name: 'rechargeWay',
+    meta: {
+      title: '充值', requireAuth: true
+    },
+    component: resolve => require(['@/views/account/recharge/rechargeWay'], resolve)
+  },
 
   {
     path: '/changePassword',
