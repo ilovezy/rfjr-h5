@@ -3,10 +3,12 @@
           :showTabbar="true">
     <div class='main-container'>
       <div class='account-basic-container'>
-        <div class='avatar'>
-          <img src='./img/avatar.jpeg'
-               alt=''>
-        </div>
+        <!--<div class='avatar'>-->
+          <!--<img src='./img/avatar.jpeg'-->
+               <!--alt=''>-->
+        <!--</div>-->
+
+        <span class='iconfont avatar icon-ava12tar'></span>
 
         <div class='basic-info'>
           <div class='basic-info-item'>登录账户：{{name}}</div>

@@ -121,7 +121,8 @@
         font-size: 16px;
         margin-right: 6px;
         display: inline-block;
-        width: 0.36rem;
+        width: 0.5rem;
+        text-align: center;
       }
     }
 

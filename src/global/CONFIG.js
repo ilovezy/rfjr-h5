@@ -8,7 +8,8 @@ window.CONFIG = {
     //热更新开发构建环境 npm run dev
     // 'development': '//10.60.10.165:9001/', // dev环境
     // 'development': '//10.60.10.20:9001/',   // 肥虫虫
-    'development': '//10.60.30.69:9001/',   // 王延吉
+    // 'development': '//10.60.30.69:9001/',   // 王延吉
+    'development': '//10.60.10.30:9001/',   // 王延吉
   },
 
   openVconsole: true,
