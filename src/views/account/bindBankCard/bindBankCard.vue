@@ -18,6 +18,7 @@
     <div v-else>
       <div class='info-wrap'
            v-if='bindCardFlag'>
+
         <div class='info-item'>
           <span class='label'>开户银行卡号:</span> {{cardNo}}
         </div>
@@ -26,6 +27,12 @@
       <div v-else>
         <div class='form-body'
              style='margin-top: 1rem;'>
+          <div class='input-spe-wrap'>
+            <div class='label'
+                 style='margin-bottom: 0.5rem;'>户名: {{trueName}}
+            </div>
+          </div>
+
           <div class='input-spe-wrap'>
             <div class='label'
                  style='margin-bottom: 0.5rem;'>开户银行卡号
@@ -55,13 +62,13 @@ export default {
     return {
       cardNo: '',
       loading: true,
-      bindCardFlag: false
+      bindCardFlag: false,
+      trueName: ''
     }
   },
   computed: {},
   created() {
     this.getToken()
-
   },
   methods: {
     goBack() {
@@ -81,6 +88,7 @@ export default {
       this.axios.post('/api/member/center').then(res => {
         this.bindCardFlag = res.bindCardFlag
         this.cardNo = res.cardNo
+        this.trueName = res.trueName
         this.loading = false
       })
     },

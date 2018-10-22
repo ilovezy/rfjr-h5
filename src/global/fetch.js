@@ -58,7 +58,7 @@ instance.interceptors.response.use(res => {
     return Promise.reject(data);
   }
 }, err => {
-  // debugger
+  debugger
   Loading.close()
   if (err.response) {
     let response = err.response || {}
