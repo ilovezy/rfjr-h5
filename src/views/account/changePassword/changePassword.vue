@@ -71,11 +71,11 @@
 
       validForm() {
         if (!isValidPassword(this.oldPassword)) {
-          this.$dialog.toast({mes: '老密码格式不正确，长度为6-16位的字母和数字组合'});
+          this.$dialog.toast({mes: '老密码格式不正确，长度为6-16位'});
           return
         }
         if (!isValidPassword(this.newPassword)) {
-          this.$dialog.toast({mes: '新密码格式不正确，长度为6-16位的字母和数字组合'});
+          this.$dialog.toast({mes: '新密码格式不正确，长度为6-16位'});
           return
         }
         if (this.oldPassword == this.newPassword) {

@@ -1,9 +1,9 @@
 let protocolRoute = [
   {
     path: '/protocol/register',
-    name: 'protocol_register',//注册协议
+    name: 'protocol_register',//客户协议书
     meta: {
-      title: '长富理财注册协议'
+      title: '客户协议书'
     },
     component: resolve => require(['@/views/protocol/register'], resolve)
   },

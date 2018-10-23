@@ -76,7 +76,7 @@
           this.$dialog.toast({mes: '账号格式不正确，2-18位之间'});
           return false
         } else if (!isValidPassword(this.password)) {
-          this.$dialog.toast({mes: '密码格式不正确,为6-16位的字母和数字组合'});
+          this.$dialog.toast({mes: '密码格式不正确,为6-16位'});
           return false
         }
         return true

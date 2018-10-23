@@ -120,7 +120,7 @@
           return false
         }
         if (!isValidPassword(this.password)) {
-          this.$dialog.toast({mes: '新密码格式不正确，长度为6-16位的字母和数字组合'})
+          this.$dialog.toast({mes: '新密码格式不正确，长度为6-16位'})
           return false
         }
         if (!this.captchaCode) {

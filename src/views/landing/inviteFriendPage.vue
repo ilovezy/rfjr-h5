@@ -56,7 +56,7 @@
              @click="validForm">注册
         </div>
         <div class="cell-protocol">注册即代表同意
-          <router-link to="/protocol/register">《用户协议》</router-link>
+          <router-link to="/protocol/register">《客户协议书》</router-link>
         </div>
       </div>
     </div>
@@ -127,7 +127,7 @@
           return
         }
         if (!isValidPassword(this.password)) {
-          this.$dialog.toast({mes: '密码格式不正确，长度为6-16位的字母和数字组合'})
+          this.$dialog.toast({mes: '密码格式不正确，长度为6-16位'})
           return
         }
         if (!this.captchaCode) {
