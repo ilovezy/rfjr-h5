@@ -35,6 +35,7 @@
     </div>
 
     <div class='btn btn-primary btn-block'
+         style='margin-top: 1.2rem;'
          @click="doLogin">登录
     </div>
   </layout>

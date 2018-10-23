@@ -45,7 +45,8 @@
                class="checkbox"
                :disabled='openAccountFlag'
                v-model="agreement">
-        <label for='agg'>我已阅读并同意</label> <span style='color: red;'>《风险揭示书》</span>
+        <label for='agg'>我已阅读并同意</label>
+        <router-link style='color: red;' to="/protocol/riskDisclosure">《风险揭示书》</router-link>
       </div>
       <div class='btn btn-primary btn-block'
            :class='!agreement && "btn-disabled"'

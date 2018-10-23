@@ -16,13 +16,13 @@ let protocolRoute = [
     component: resolve => require(['@/views/protocol/download'], resolve)
   },
   {
-    path: '/protocol/borrowing_agreements',
-    name: 'protocol_borrowing_agreements',//长富理财网借款协议
+    path: '/protocol/riskDisclosure',
+    name: 'protocol_riskDisclosure',//《风险揭示书》
     meta: {
-      title: '借款协议',
+      title: '风险揭示书',
       requireAuth: true
     },
-    component: resolve => require(['@/views/protocol/borrowing_agreements'], resolve)
+    component: resolve => require(['@/views/protocol/riskDisclosure'], resolve)
   }
 ]
 export default protocolRoute
