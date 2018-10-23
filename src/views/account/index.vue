@@ -69,12 +69,13 @@
         <!--icon='icon-setting.png'-->
         <!--title='出入金密码'/>-->
     </div>
-
     <div class='simple-panel'>
       <simple-list-item
         link='/download'
         icon='icon-xiazai1'
         title='我要下载'/>
+    </div>
+    <div class='simple-panel'>
       <simple-list-item
         link='/changePassword'
         icon='icon-xiugai-1'
