@@ -78,7 +78,7 @@
 
       getList() {
         const self = this
-        this.axios.post('/api/member/recharge/page').then(res => {
+        this.axios.post('/api/member/withdraw/page').then(res => {
           self.list = res.content || []
           self.loading = false
         })
