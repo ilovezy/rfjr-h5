@@ -12,7 +12,7 @@
 
         <div class='basic-info'>
           <div class='basic-info-item'>登录账户：{{name}}</div>
-          <div class='basic-info-item'>交易账户：{{openAccountFlag ? '' : '未开户'}}</div>
+          <div class='basic-info-item'>交易账户：{{openAccountFlag ? account : '未开户'}}</div>
         </div>
       </div>
 
@@ -35,6 +35,11 @@
         icon='icon-s111himingrenzheng-copy'
         :success='realNameFlag'
         title="实名认证"/>
+      <simple-list-item
+        @click.native='goTarget("/openAccount")'
+        icon='icon-kaihu'
+        :success='openAccountFlag'
+        title="在线开户"/>
       <simple-list-item
         @click.native='goTarget("/bindBankCard")'
         icon='icon-1malingshuxiangmuicon-'
@@ -93,6 +98,7 @@
         name: '',
         openAccountFlag: false,
         realNameFlag: false,
+        account: ''
       }
     },
     created() {
@@ -100,6 +106,10 @@
     },
 
     methods: {
+      doOpenAccount(){
+        alert('fuck')
+      },
+
       formatThousands: function (num) {
         return (+num || 0).toString().replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
       },
@@ -164,6 +174,7 @@
           this.name = res.name
           this.openAccountFlag = res.openAccountFlag
           this.realNameFlag = res.realNameFlag
+          this.account = res.account
         })
       },
 

@@ -9,7 +9,7 @@
     </div>
 
     <div class='form-body'>
-      <div class='form-item'>
+      <div class='form-item' style='margin-bottom: 0.2rem;'>
         <input type='number'
                class='form-control'
                style='width: 100%;'
@@ -17,6 +17,7 @@
                placeholder="输入入金金额"
                v-model.number="amount">
       </div>
+      <p style='margin-bottom: 0.4rem;'>汇率：<span style='color: orangered;'>7.75</span></p>
     </div>
 
     <div class='select-pay-way-wrap'>
