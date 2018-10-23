@@ -8,6 +8,14 @@ let protocolRoute = [
     component: resolve => require(['@/views/protocol/register'], resolve)
   },
   {
+    path: '/download',
+    name: 'download',//我要下载
+    meta: {
+      title: '我要下载'
+    },
+    component: resolve => require(['@/views/protocol/download'], resolve)
+  },
+  {
     path: '/protocol/borrowing_agreements',
     name: 'protocol_borrowing_agreements',//长富理财网借款协议
     meta: {

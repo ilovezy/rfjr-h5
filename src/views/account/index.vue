@@ -19,12 +19,12 @@
       <div class='bottom-container'>
         <div class='bottom-item'>
           <div class='number'>{{balance | formatThousands}}</div>
-          <div class='text'>金额</div>
+          <div class='text'>资金(USD)</div>
         </div>
 
         <div class='bottom-item'>
           <div class='number'>{{availableBalance | formatThousands}}</div>
-          <div class='text'>可用金额</div>
+          <div class='text'>可用资金(USD)</div>
         </div>
       </div>
     </div>
@@ -66,6 +66,10 @@
     </div>
 
     <div class='simple-panel'>
+      <simple-list-item
+        link='/download'
+        icon='icon-xiazai1'
+        title='我要下载'/>
       <simple-list-item
         link='/changePassword'
         icon='icon-xiugai-1'

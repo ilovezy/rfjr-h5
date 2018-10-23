@@ -12,18 +12,74 @@
     width: 1.5rem;
   }
   .btn-primary {
-    margin-top: 1.2rem;
+    margin-top: 0.5rem;
   }
 
-  .info-wrap {
-    padding: 1rem 0;
-    .info-item {
-      .label{
-        color: #999;
-        margin-right: 10px;
-      }
-      margin-bottom: 0.3rem;
+  .form-body {
+    margin-top: 0.5rem!important;
+  }
+
+  .select-pay-way-wrap {
+    .title-sm {
+      margin-bottom: 15px;
       font-size: 20px;
     }
+
+    .pay-way-container {
+      display: flex;
+      align-items: center;
+      .alipay-item,
+      .bank-item {
+        border: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        width: 130px;
+        height: 70px;
+        margin-right: 20px;
+        padding-left: 15px;
+        transition: all 0.4s ease;
+        &.active {
+          border: 1px solid #1296db;
+        }
+      }
+      .alipay-item {
+        .ali-icon {
+          color: #1296db;
+          font-size: 40px;
+          display: inline-block;
+          margin-right: 10px;
+        }
+      }
+      .bank-item {
+        .bank-icon {
+          display: inline-block;
+          width: 50px;         margin-right: 10px;
+        }
+      }
+    }
+
+  }
+
+  .info-container {
+    height: 3rem;
+    margin-top: 0.5rem;
+    .qrcode {
+      width: 3rem;
+      height: 3rem;
+      margin: 0 auto;
+    }
+
+    .bank-wrap {
+      .item {
+        margin-bottom: 0.3rem;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .btn-default {
+    border: 1px solid #eaeaea;
+    margin-top: 0.5rem;
+    border-radius: 0;
   }
 }

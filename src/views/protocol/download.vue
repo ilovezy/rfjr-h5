@@ -1,20 +1,33 @@
 <template>
-  <layout class="recharge-way-page user-form">
+  <layout class="download-page user-form">
     <navbar :large='true'
             slot="navbar">
-      <span slot="center">我要入金</span>
+      <span slot="center">我要下载</span>
     </navbar>
-    <div class='title'>
-      ￥{{amount | formatThousands}}
-    </div>
-    <div class='title2'>
-      支付宝账号 {{18768143328}}
-    </div>
-    <img src='./img/qrcode.png'
-         class='qrcode'
-         alt=''>
-    <div class='btn btn-primary btn-block'
-         @click="validForm">确定入金
+    <div class='download-container'>
+      <div class='item-ios'>
+        <div class='left-info'>
+          <span class='iconfont icon-ios'></span>
+          <div>苹果</div>
+        </div>
+        <span class='qrcode-wrap'>
+          <img src='./downloadImg/ios.png'
+               alt=''>
+        </span>
+      </div>
+      <div class='item-android'>
+        <div class='item-container'>
+          <div class='left-info'>
+            <span class='iconfont icon-anzhuo' style='color: green'></span>
+            <div>安卓</div>
+          </div>
+          <span class='qrcode-wrap'>
+            <img src='./downloadImg/android.jpg'
+                 alt=''>
+          </span>
+        </div>
+        <p>安卓版：使用手机浏览器扫描二维码（不支持微信扫描）</p>
+      </div>
     </div>
   </layout>
 </template>
@@ -22,7 +35,8 @@
   export default {
     data() {
       return {
-        amount: 0
+        amount: '',
+        payType: 'ali'
       }
     },
     computed: {
@@ -31,16 +45,13 @@
       // }
     },
     created() {
-      this.setAmount()
       this.getToken()
     },
     methods: {
-      formatThousands: function (num) {
-        return (+num || 0).toString().replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
-      },
-      setAmount() {
-        let query = this.$route.query || {}
-        this.amount = query.amount || 0
+      selectAli() {
+        this.payType = 'ali'
+      }, selectBank() {
+        this.payType = 'bank'
       },
       goBack() {
         this.$router.back()
@@ -54,11 +65,11 @@
       },
 
       validForm() {
-        if (!this.amount) {
+        if (this.amount) {
+          this.doConfirm()
+        } else {
           this.$dialog.toast({mes: '请输入入金金额'});
-          return
         }
-        this.doConfirm()
       },
 
       //提交注册
@@ -84,5 +95,5 @@
   }
 </script>
 <style lang="less">
-  @import "rechargeWay";
+  @import "download";
 </style>

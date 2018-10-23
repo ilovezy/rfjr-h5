@@ -22,7 +22,8 @@
             <div class='right'>{{statusMap[item.status] || item.status}}</div>
           </div>
           <div class='bottom'>
-            <div class='left'>提交时间：{{item.createAt}}</div>
+            <div class='left'>{{typeMap[item.type]}}</div>
+            <div class='right'>提交时间：{{item.createAt}}</div>
           </div>
         </div>
       </div>
@@ -54,6 +55,10 @@
           processing: '处理中',
           success: '成功',
           fail: '失败',
+        },
+        typeMap: {
+          alipay: '支付宝',
+          bank_card: '银联'
         },
         loading: true,
       }
