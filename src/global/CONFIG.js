@@ -9,7 +9,7 @@ window.CONFIG = {
     // 'development': '//10.60.10.165:9001/', // dev环境
     // 'development': '//10.60.10.20:9001/',   // 肥虫虫
     // 'development': '//10.60.30.69:9001/',   // 王延吉
-    'development': '//10.60.10.30:9001/',   // 王延吉
+    'development': '//124.160.42.126:6599/',   // 王延吉  124.160.42.126:6510
   },
 
   openVconsole: true,

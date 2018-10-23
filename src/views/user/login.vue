@@ -43,8 +43,8 @@
   export default {
     data() {
       return {
-        loginName: '18768143328',
-        password: '1qaz2wsx',
+        loginName: '',
+        password: '',
         showPassword: false,
       }
     },
