@@ -35,44 +35,27 @@ let accountRoute = [
   },
 
   {
-    path: '/bankCard',
-    name: 'account_bankCard',
-    meta: {
-      title: '银行卡', requireAuth: true
-    },
-    component: resolve => require(['@/views/account/openBank/bankCardPage'], resolve)
-  },
-
-  {
     path: '/recharge',
     name: 'account_recharge',
     meta: {
-      title: '充值', requireAuth: true
+      title: '入金', requireAuth: true
     },
     component: resolve => require(['@/views/account/recharge/rechargePage'], resolve)
-  },
-
-  {
-    path: '/changePassword',
-    name: 'account_changePassword',
-    meta: {
-      title: '充值', requireAuth: true
-    },
-    component: resolve => require(['@/views/account/changePassword/changePassword'], resolve)
   },
   {
     path: '/rechargeList',
     name: 'account_rechargeList',
     meta: {
-      title: '充值', requireAuth: true
+      title: '入金记录', requireAuth: true
     },
     component: resolve => require(['@/views/account/recharge/rechargeListPage'], resolve)
   },
+
   {
     path: '/withdraw',
     name: 'account_withdraw',
     meta: {
-      title: '提现', requireAuth: true
+      title: '出金', requireAuth: true
     },
     component: resolve => require(['@/views/account/withdraw/withdrawPage'], resolve)
   },
@@ -80,9 +63,18 @@ let accountRoute = [
     path: '/withdrawList',
     name: 'account_withdrawList',
     meta: {
-      title: '充值', requireAuth: true
+      title: '出金记录', requireAuth: true
     },
     component: resolve => require(['@/views/account/withdraw/withdrawListPage'], resolve)
   },
+  {
+    path: '/changePassword',
+    name: 'account_changePassword',
+    meta: {
+      title: '修改密码', requireAuth: true
+    },
+    component: resolve => require(['@/views/account/changePassword/changePassword'], resolve)
+  },
+
 ]
 export default accountRoute

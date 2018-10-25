@@ -23,11 +23,8 @@ let instance = axios.create({
 })
 
 instance.interceptors.request.use(config => {
-  let Version = CONFIG.serviceParam.Version
   let clientName = CONFIG.serviceParam.clientName
   let clientSecret = CONFIG.serviceParam.clientSecret
-
-  // config.headers.Version = Version
 
   if (config.data) {
     config.data.clientName = clientName
