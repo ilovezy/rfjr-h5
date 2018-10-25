@@ -45,10 +45,6 @@
     },
     data() {
       return {
-        loginName: '',
-        password: '',
-        sendCodeStart: false,
-        second: 60,
         list: [],
         statusMap: {
           wait: '待确认',
