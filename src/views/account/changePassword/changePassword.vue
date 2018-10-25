@@ -52,21 +52,10 @@
       },
 
       getToken() {
-        if (USER.isLogin()) {
-          this.getAccount()
-        } else {
+        if (!USER.isLogin()) {
           USER.logout()
           this.$router.push('/login')
         }
-      },
-
-      getAccount() {
-        this.axios.post('/api/member/center').then(res => {
-          this.realNameFlag = res.realNameFlag
-          this.trueName = res.trueName
-          this.identityNo = res.identityNo
-          this.loading = false
-        })
       },
 
       validForm() {
