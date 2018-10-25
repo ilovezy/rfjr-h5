@@ -48,7 +48,7 @@
         <div v-if='type == "bank_card"'
              class='bank-wrap'>
           <div class='item'>户名：王萃</div>
-          <div class='item'>开户银行：中国银行 杭州文辉支行</div>
+          <div class='item'>开户银行：中国银行杭州文辉支行</div>
           <div class='item'>开户银行卡号：6216696200004027992 </div>
         </div>
       </div>
