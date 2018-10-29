@@ -1,7 +1,7 @@
 <template>
   <layout class='error-page'>
     <div class="notavailable ">
-      <img src="../../static/images/notavailable/not_error.png"
+      <img src="/h5/static/images/notavailable/not_error.png"
            alt="404 error~"
            class="not_icon">
       <ibutton type="hollow"

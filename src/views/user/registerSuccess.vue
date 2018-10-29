@@ -8,7 +8,7 @@
       恭喜获得 <span class='text-danger'>888现金礼包</span>
     </div>
 
-    <img src='/static/images/user/registerSuccess/Bitmap@3x.png'
+    <img src='/h5/static/images/user/registerSuccess/Bitmap@3x.png'
          class='img-success1'
          alt=''>
 
@@ -16,7 +16,7 @@
       为保证资金安全 请开通银行存管账户
     </div>
 
-    <img src='/static/images/user/registerSuccess/regsiter_img_cunguan@3x.png'
+    <img src='/h5/static/images/user/registerSuccess/regsiter_img_cunguan@3x.png'
          class='img-success2'
          alt=''>
 

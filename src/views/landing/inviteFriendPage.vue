@@ -29,7 +29,7 @@
                  v-model.trim="password">
           <img class='pwd-icon'
                @click='togglePassword'
-               :src="showPassword ? '/static/images/common/icon-eye.png' : '/static/images/common/icon-eye-close.png'"/>
+               :src="showPassword ? '/h5/static/images/common/icon-eye.png' : '/h5/static/images/common/icon-eye-close.png'"/>
         </div>
 
         <div class='form-item'>

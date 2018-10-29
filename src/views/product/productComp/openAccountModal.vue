@@ -7,7 +7,7 @@
             为保证资金安全 <br> 请开通银行存管账户
           </div>
 
-          <img src='/static/images/user/registerSuccess/regsiter_img_cunguan@3x.png'
+          <img src='/h5/static/images/user/registerSuccess/regsiter_img_cunguan@3x.png'
                class='img-center'
                alt=''>
           <button class='btn btn-primary btn-square btn-block'

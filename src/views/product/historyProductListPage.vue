@@ -42,7 +42,7 @@
 
         <div class="notavailable"
              v-show="list.length == 0">
-          <img src="/static/images/notavailable/not_product.png"
+          <img src="/h5/static/images/notavailable/not_product.png"
                alt="暂无历史项目~"
                class="not_icon">
           <p class="not_txt">暂无历史项目~</p>

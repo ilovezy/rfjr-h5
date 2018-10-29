@@ -20,13 +20,13 @@
       <span v-if='arrowText'>
         <span class='arrow-text'>{{arrowText}}</span>
         <img class='arrow-right'
-             src='/static/images/common/arrow-right.png'
+             src='/h5/static/images/common/arrow-right.png'
              alt=''>
       </span>
 
       <img v-else
            class='arrow-right'
-           src='/static/images/common/arrow-right.png'
+           src='/h5/static/images/common/arrow-right.png'
            alt=''>
     </span>
 
@@ -59,7 +59,7 @@
     </span>
     <span v-else
           class='arrow-right'>
-      <img src='/static/images/common/arrow-right.png'
+      <img src='/h5/static/images/common/arrow-right.png'
            alt=''>
     </span>
   </div>
@@ -82,7 +82,7 @@
     computed: {
       iconUrl() {
         // TODO 这里的icon实际为了服务 account/index写死了
-        return this.icon ? '/static/images/account/index/listIcon/' + this.icon : ''
+        return this.icon ? '/h5/static/images/account/index/listIcon/' + this.icon : ''
       }
     },
 

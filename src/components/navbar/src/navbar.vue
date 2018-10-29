@@ -5,7 +5,7 @@
     <div class="navbar-item"
          @click='goBack'>
       <img class="back-icon"
-           src='/static/images/common/arrow-back-2.png'
+           src='/h5/static/images/common/arrow-back-2.png'
            alt=''>
     </div>
     <div class="navbar-center">
@@ -23,7 +23,7 @@
          v-if='!noBack'
          @click='goBack'>
       <img class="back-icon"
-           src='/static/images/common/arrow-back-1.png'
+           src='/h5/static/images/common/arrow-back-1.png'
            alt=''>
     </div>
     <div class="navbar-center">

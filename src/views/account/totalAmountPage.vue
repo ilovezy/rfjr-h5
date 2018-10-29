@@ -2,7 +2,7 @@
   <layout class='total-amount-page with-tab'>
     <div class='tab-nav-withback'>
       <div class='back-icon-wrap'>
-        <img src='/static/images/common/arrow-back-1.png'
+        <img src='/h5/static/images/common/arrow-back-1.png'
              class='back-img'
              @click='goBack'
              alt=''>

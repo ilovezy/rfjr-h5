@@ -7,7 +7,7 @@
     </navbar>
 
     <div class='page-body'>
-      <img src='/static/images/proudct/product-banner.png'
+      <img src='/h5/static/images/proudct/product-banner.png'
            alt=''>
 
       <div class='product-list-container'>
@@ -50,7 +50,7 @@
 
         <div class="notavailable"
              v-show="list.length == 0">
-          <img src="/static/images/notavailable/not_product.png"
+          <img src="/h5/static/images/notavailable/not_product.png"
                alt="暂无理财项目~"
                class="not_icon">
           <p class="not_txt">暂无理财项目~</p>

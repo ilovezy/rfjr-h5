@@ -42,7 +42,7 @@
               <span class='img-list-item-title'>
                 身份证正面
               </span>
-              <img src='/static/images/home/slider/slider1.png'
+              <img src='/h5/static/images/home/slider/slider1.png'
                    class='item-img'
                    alt=''>
             </div>
@@ -50,7 +50,7 @@
               <span class='img-list-item-title'>
                 身份证正面
               </span>
-              <img src='/static/images/home/slider/slider1.png'
+              <img src='/h5/static/images/home/slider/slider1.png'
                    class='item-img'
                    alt=''>
             </div>

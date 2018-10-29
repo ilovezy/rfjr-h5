@@ -24,7 +24,7 @@
         </div>
         <div class='modal-body'>
           <div class='img-status-wrap'>
-            <img src='/static/images/proudct/loanStatus/during.png'
+            <img src='/h5/static/images/proudct/loanStatus/during.png'
                  class='img-status'
                  alt=''>
           </div>
@@ -42,7 +42,7 @@
         </div>
         <div class='modal-body'>
           <div class='img-status-wrap'>
-            <img src='/static/images/proudct/loanStatus/success.png'
+            <img src='/h5/static/images/proudct/loanStatus/success.png'
                  class='img-status'
                  alt=''>
           </div>
@@ -60,7 +60,7 @@
         </div>
         <div class='modal-body'>
           <div class='img-status-wrap'>
-            <img src='/static/images/proudct/loanStatus/fail.png'
+            <img src='/h5/static/images/proudct/loanStatus/fail.png'
                  class='img-status'
                  alt=''>
           </div>
