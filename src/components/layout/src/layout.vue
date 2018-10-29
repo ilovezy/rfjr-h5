@@ -42,9 +42,6 @@
       this.isAppdown()
     },
     methods: {
-      removeProductTab(){
-        USER.removeSelectProductTab() // FUCK
-      },
       isAppdown() {
         if (sessionStorage.getItem('appdown') === 'false') {
           this.appdown = false
