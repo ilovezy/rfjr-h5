@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import userRoute from './modules/user'
 import accountRoute from './modules/account'
-import articleRoute from './modules/article'
 import protocolRoute from './modules/protocol'
 import landingRoute from './modules/landing'
 import productRoute from './modules/product'
@@ -36,7 +35,6 @@ export default new Router({
     ...basicRoute,
     ...userRoute,
     ...accountRoute,
-    ...articleRoute,
     ...protocolRoute,
     ...landingRoute,
     ...productRoute,
