@@ -48,7 +48,7 @@ router.beforeEach((to, from, next) => {
   //登录验证
   if (to.meta.requireAuth) {
     // 判断该路由是否需要登录权限
-    if (localStorage.getItem('token')) {
+    if (USER.isLogin()) {
       //判断token是否存在
       // store.commit('setPageDirection', 'slide-left');
       // next()

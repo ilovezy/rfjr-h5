@@ -30,7 +30,7 @@ let basicRoute = [
 ]
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     ...basicRoute,
     ...userRoute,

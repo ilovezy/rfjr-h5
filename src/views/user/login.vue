@@ -55,7 +55,7 @@
       // }
     },
     created() {
-      this.islogin()
+      // this.islogin()
     },
     methods: {
       togglePassword() {
@@ -67,7 +67,7 @@
       },
 
       islogin() {
-        if (localStorage.getItem('token') !== null) {
+        if (USER.isLogin()) {
           this.$router.push('/account')
         }
       },
