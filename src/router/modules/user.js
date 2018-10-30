@@ -27,7 +27,7 @@ let demoRoute = [
     path: '/forget',
     name: 'forget',//找回密码
     meta: {
-      title: '找回密码'
+      title: '忘记密码'
     },
     component: resolve => require(['@/views/user/forget'], resolve)
   }

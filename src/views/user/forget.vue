@@ -3,54 +3,44 @@
     <navbar :large='true'
             slot="navbar">
     </navbar>
-
     <div class='title'>
-      找回登录密码
+      忘记密码
     </div>
 
     <div class='form-body'>
       <div class='form-item'>
-        <input type="tel"
-               class='form-control'
-               maxlength="11"
-               placeholder="注册手机号"
-               v-model="mobile">
-      </div>
-      <div class='form-item'>
-        <input :type="showPassword ? 'text' : 'password'"
-               class='form-control'
-               autocomplete="off"
-               maxlength="16"
-               placeholder="新密码"
-               v-model.trim="password">
-        <img class='pwd-icon'
-             @click='togglePassword'
-             :src="showPassword ? '/h5/static/images/common/icon-eye.png' : '/h5/static/images/common/icon-eye-close.png'"/>
+        <input class='form-control'
+               placeholder="用户名"
+               v-model="name">
       </div>
 
       <div class='form-item'>
-        <input type="number"
+        <input type="tel"
                class='form-control'
-               maxlength="6"
-               placeholder="短信验证码"
-               v-model.trim="captchaContent">
-        <button slot="right"
-                class="btn-cell-special -disabled"
-                disabled
-                v-if="mobile.length !== 11">获取验证码
-        </button>
-        <sendcode slot="right"
-                  v-model="sendCodeStart"
-                  @click.native="sendCode"
-                  :second="second"
-                  type="warning"
-                  v-else></sendcode>
+               placeholder="手机号"
+               v-model="mobile">
+      </div>
+
+      <div class='form-item'>
+        <input class='form-control'
+               placeholder="真实姓名"
+               v-model="trueName">
+      </div>
+
+      <div class='form-item'>
+        <input class='form-control'
+               placeholder="身份证号码"
+               v-model="identityNo">
+      </div>
+      <div class='form-item'>
+        <input class='form-control'
+               placeholder="开户名"
+               v-model="account">
       </div>
     </div>
 
     <div class='btn btn-primary btn-block'
-         :class='btnDisabled && "btn-disabled"'
-         @click="doNext">确定
+         @click="validForm">确定
     </div>
   </layout>
 </template>
@@ -58,101 +48,70 @@
   export default {
     data() {
       return {
+        name: '',
         mobile: '',
-        password: '',
-        showPassword: false,
-        captchaCode: '', // 验证码code
-        captchaContent: '', // 正式验证码
-        sendCodeStart: false,
-        second: 60,
+        trueName: '',
+        identityNo: '',
+        account: '',
       }
     },
-    computed: {
-      btnDisabled() {
-        return isNaN(this.mobile) || this.mobile.length !== 11
-      }
-    },
+    computed: {},
     methods: {
       goBack() {
         this.$router.back()
       },
-      togglePassword() {
-        this.showPassword = !this.showPassword
-      },
-
-      // doNext() {
-      //   this.axios.post('/security/check/resetLoginPwd', {
-      //     mobile: this.mobile
-      //   }).then(res => {
-      //     this.$router.push({
-      //       path: '/forgetNext',
-      //       query: {
-      //         mobile: this.mobile
-      //       }
-      //     })
-      //   })
-      // },
-
-      /**
-       * 获取验证码 & 验证
-       */
-      sendCode() {
-        this.sendSmsCode()
-      },
-
-      sendSmsCode() {
-        const self = this
-        self.$dialog.loading.open('验证码发送中...');
-        self.axios.post('/security/sms/resetLoginPwd', {
-          mobile: self.mobile
-        }).then(res => {
-          self.$dialog.toast({mes: '验证码发送成功'});
-          self.sendCodeStart = true
-          self.captchaCode = res
-        }).catch(err => {
-          debugger
-        })
-      },
 
       validForm() {
-        if (!this.password) {
-          this.$dialog.toast({mes: '请输入新密码'})
-          return false
-        }
-        if (!isValidPassword(this.password)) {
-          this.$dialog.toast({mes: '新密码格式不正确，长度为6-16位'})
-          return false
-        }
-        if (!this.captchaCode) {
-          this.$dialog.toast({mes: '请先获取短信验证码'})
-          return false
-        }
-        if (!this.captchaContent || !isValidSmsCode(this.captchaContent)) {
-          this.$dialog.toast({mes: '请输入正确的短信验证码'})
+        if (!isValidUserName(this.name)) {
+          this.$message.warning('用户名不正确，长度为2-18位');
           return
         }
-        return true
+        if (!isValidPhone(this.mobile)) {
+          this.$message.warning('手机号码格式不正确');
+          return
+        }
+        if (!this.trueName) {
+          this.$message.warning('请输入真实名称');
+          return
+        }
+        if (!isValidIdentityNum(this.identityNo)) {
+          this.$message.warning('身份证号码格式不正确');
+          return
+        }
+        if (!this.account) {
+          this.$message.warning('请输入开户名');
+          return
+        }
+        this.doNext()
       },
 
       doNext() {
-        if (this.validForm()) {
-          this.axios.post('/security/save/resetLoginPwd', {
-            mobile: this.mobile,
-            password: this.password,
-            captchaCode: this.captchaCode,
-            captchaContent: this.captchaContent,
-          }).then(res => {
-            this.$dialog.toast({mes: '已成功找回密码，快去登录吧'})
-            USER.logout()
-            setTimeout(() =>{
-              this.$router.push('/login')
-            }, 2000)
-          })
-        }
+        const self = this
+        this.axios.post('/security/api/member/forget/password', {
+          name: this.name,
+          mobile: this.mobile,
+          trueName: this.trueName,
+          identityNo: this.identityNo,
+          account: this.account,
+        }).then(res => {
+          this.$dialog.toast({mes: '提交申请成功,等待受理'})
+          USER.logout()
+          setTimeout(() => {
+            self.goBack()
+          }, 2000)
+        })
       }
     }
   }
 </script>
 <style lang="less">
   @import "forget.less";
+
+  .forget-page {
+
+    .form-control {
+      width: 100%;
+
+    }
+  }
 </style>

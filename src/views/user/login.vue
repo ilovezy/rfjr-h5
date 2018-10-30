@@ -28,15 +28,15 @@
              @click='togglePassword'
              :src="showPassword ? '/h5/static/images/common/icon-eye.png' : '/h5/static/images/common/icon-eye-close.png'"/>
       </div>
-
-      <!--<div class="forget-password">-->
-        <!--<router-link to="forget">忘记密码</router-link>-->
-      <!--</div>-->
     </div>
 
     <div class='btn btn-primary btn-block'
          style='margin-top: 1.2rem;'
          @click="doLogin">登录
+    </div>
+
+    <div class="forget-password" style='margin-top: 0.5rem;'>
+      <router-link to="forget">忘记密码</router-link>
     </div>
   </layout>
 </template>

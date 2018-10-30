@@ -35,8 +35,7 @@
                style='margin-bottom: 0.5rem;'>银行名称
           </div>
           <div class='form-item'>
-            <input type="number"
-                   class='form-control'
+            <input class='form-control'
                    placeholder="请输入银行名称"
                    v-model="bankName">
           </div>
@@ -47,8 +46,7 @@
                style='margin-bottom: 0.5rem;'>开户支行
           </div>
           <div class='form-item'>
-            <input type="number"
-                   class='form-control'
+            <input class='form-control'
                    placeholder="请输入开户支行"
                    v-model="bankBranch">
           </div>
