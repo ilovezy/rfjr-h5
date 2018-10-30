@@ -77,7 +77,11 @@ instance.interceptors.response.use(res => {
       }
     }
   } else {
-    Toast({mes: '网络有点卡，请稍后重试', timeout: ToastTimeout})
+    Toast({mes: '登录信息过期，请登录', timeout: ToastTimeout})
+    USER.logout()
+    setTimeout(() => {
+      location.href = '/h5/#/login'
+    }, 2000)
     return Promise.reject(err)
   }
 })

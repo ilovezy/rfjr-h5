@@ -9,7 +9,8 @@
     </div>
 
     <div class='form-body'>
-      <div class='form-item' style='margin-bottom: 0.2rem;'>
+      <div class='form-item'
+           style='margin-bottom: 0.2rem;'>
         <input type='number'
                class='form-control'
                style='width: 100%;'
@@ -17,7 +18,11 @@
                placeholder="输入入金金额"
                v-model.number="amount">
       </div>
-      <p style='margin-bottom: 0.4rem;'>汇率：<span style='color: orangered;'>7.75</span></p>
+      <p style='margin-bottom: 0.4rem;'>(USD) : {{usdAmount}}</p>
+      <p style='margin-bottom: 0.4rem;'>
+        汇率：<span style='color: orangered;'>7.75</span>
+        <span style='color: #999'>（入金时间：周一至周五9:00-24:00）</span>
+      </p>
     </div>
 
     <div class='select-pay-way-wrap'>
@@ -44,14 +49,22 @@
             <img src='./img/qrcode.png'
                  alt=''>
           </div>
+          <div style='color: orangered; text-align: center; margin-top: 5px;'>(转账备注交易账号+姓名)</div>
         </div>
         <div v-if='type == "bank_card"'
              class='bank-wrap'>
           <div class='item'>户名：王萃</div>
           <div class='item'>开户银行：中国银行杭州文辉支行</div>
-          <div class='item'>开户银行卡号：6216696200004027992 </div>
+          <div class='item'>开户银行卡号：6216696200004027992</div>
         </div>
       </div>
+    </div>
+
+    <div class='notice-container '
+         style='padding: 15px;background: rgb(248, 248, 248); margin-top: 15px; margin-bottom: 15px;'>
+      <div style='margin-bottom: 10px;'>1.支付时请务必填写页面显示附言，若没有填写则会导致入金无法到账，请及时联系客服人员，支付过程中请附言上您的交易账号，以便我们查询</div>
+      <div style='margin-bottom: 10px;'>2.转账后，发送转账明细截图至您的专属客户经理或本司客服</div>
+      <div style='margin-bottom: 10px;'>3.为确保资金及时到账，请选择“实时转账”，我方收款后，15分钟内办理</div>
     </div>
 
     <div class='btn btn-primary btn-block'
@@ -73,9 +86,9 @@
       }
     },
     computed: {
-      // btnDisabled() {
-      //   return isNaN(this.identityNo) || this.identityNo.length < 6 || this.identityNo.length > 16
-      // }
+      usdAmount() {
+        return Number(parseFloat(this.amount / 7.75).toFixed(3).slice(0,-1))
+      }
     },
     created() {
       this.getToken()

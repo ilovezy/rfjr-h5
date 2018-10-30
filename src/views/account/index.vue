@@ -3,11 +3,6 @@
           :showTabbar="true">
     <div class='main-container'>
       <div class='account-basic-container'>
-        <!--<div class='avatar'>-->
-          <!--<img src='./img/avatar.jpeg'-->
-               <!--alt=''>-->
-        <!--</div>-->
-
         <span class='iconfont avatar icon-ava12tar'></span>
 
         <div class='basic-info'>
@@ -18,12 +13,12 @@
 
       <div class='bottom-container'>
         <div class='bottom-item'>
-          <div class='number'>{{balance | formatThousands}}</div>
+          <div class='number'>$ {{balance | formatThousands}}</div>
           <div class='text'>资金(USD)</div>
         </div>
 
         <div class='bottom-item'>
-          <div class='number'>{{availableBalance | formatThousands}}</div>
+          <div class='number'>$ {{availableBalance | formatThousands}}</div>
           <div class='text'>可用资金(USD)</div>
         </div>
       </div>
