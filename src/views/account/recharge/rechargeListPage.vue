@@ -18,7 +18,7 @@
              v-for='item, index in list'
              :key='index'>
           <div class='top'>
-            <div class='left'>金额：<span class='number'>{{item.amount | formatThousands}}</span></div>
+            <div class='left'>金额：<span class='number'>${{item.amount | formatThousands}}</span></div>
             <div class='right'>{{statusMap[item.status] || item.status}}</div>
           </div>
           <div class='bottom'>
