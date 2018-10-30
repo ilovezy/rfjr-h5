@@ -48,7 +48,7 @@
         loginName: '',
         password: '',
         showPassword: false,
-        inviteId: ''
+        inviteId: 1
       }
     },
     computed: {
