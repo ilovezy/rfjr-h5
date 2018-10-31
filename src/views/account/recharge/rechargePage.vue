@@ -65,6 +65,7 @@
       <div style='margin-bottom: 10px;'>1.支付时请务必填写页面显示附言，若没有填写则会导致入金无法到账，请及时联系客服人员，支付过程中请附言上您的交易账号，以便我们查询</div>
       <div style='margin-bottom: 10px;'>2.转账后，发送转账明细截图至您的专属客户经理或本司客服</div>
       <div style='margin-bottom: 10px;'>3.为确保资金及时到账，请选择“实时转账”，我方收款后，15分钟内办理</div>
+      <div style='margin-bottom: 10px;'>4.花呗、信用卡入金通道费用千8/笔</div>
     </div>
 
     <div class='btn btn-primary btn-block'

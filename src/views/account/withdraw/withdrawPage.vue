@@ -9,9 +9,9 @@
     </div>
 
     <div class='form-body'>
-      <div class='form-item' style='border-bottom: none'>
-        可用资金(USD): ${{availableBalance}}
-      </div>
+      <!--<div class='form-item' style='border-bottom: none'>-->
+        <!--可用资金(USD): ${{availableBalance}}-->
+      <!--</div>-->
       <div class='form-item'>
         <input type='number'
                class='form-control'
@@ -77,10 +77,10 @@
           this.$dialog.toast({mes: '请输入出金金额'});
           return
         }
-        if (this.amount > this.availableBalance) {
-          this.$dialog.toast({mes: '可用资金不足'});
-          return
-        }
+        // if (this.amount > this.availableBalance) {
+        //   this.$dialog.toast({mes: '可用资金不足'});
+        //   return
+        // }
         this.doConfirm()
       },
 

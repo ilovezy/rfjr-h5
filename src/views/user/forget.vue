@@ -34,7 +34,7 @@
       </div>
       <div class='form-item'>
         <input class='form-control'
-               placeholder="开户名"
+               placeholder="交易账号"
                v-model="account">
       </div>
     </div>
@@ -79,7 +79,7 @@
           return
         }
         if (!this.account) {
-          this.$message.warning('请输入开户名');
+          this.$message.warning('请输入交易账号');
           return
         }
         this.doNext()
