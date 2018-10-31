@@ -12,6 +12,7 @@
 
     <div class='form-body'>
       <div class='form-item'>
+        <div class='label'>账户名</div>
         <input class='form-control'
                maxlength="18"
                placeholder="账户名"
@@ -19,6 +20,7 @@
       </div>
 
       <div class='form-item'>
+        <div class='label'>登录密码</div>
         <input :type="showPassword ? 'text' : 'password'"
                class='form-control'
                autocomplete="off"
@@ -28,6 +30,14 @@
         <img class='pwd-icon'
              @click='togglePassword'
              :src="showPassword ? '/h5/static/images/common/icon-eye.png' : '/h5/static/images/common/icon-eye-close.png'"/>
+      </div>
+
+      <div class='form-item'>
+        <div class='label'>邀请码</div>
+        <input class='form-control'
+               maxlength="18"
+               placeholder="邀请码"
+               v-model="inviteId">
       </div>
     </div>
 
@@ -48,7 +58,7 @@
         loginName: '',
         password: '',
         showPassword: false,
-        inviteId: 1
+        inviteId: ''
       }
     },
     computed: {
@@ -61,7 +71,7 @@
       this.islogin()
     },
     methods: {
-      setInviteId(){
+      setInviteId() {
         let query = this.$route.query || {}
         this.inviteId = query.inviteId || ''
       },
@@ -88,6 +98,10 @@
           this.$dialog.toast({mes: '密码格式不正确，长度为6-16位'})
           return
         }
+        if (!this.inviteId) {
+          this.$dialog.toast({mes: '请输入邀请码'})
+          return
+        }
         this.doRegister()
       },
 
@@ -95,14 +109,11 @@
       doRegister() {
         const self = this
         this.$dialog.loading.open('注册中请稍后...')
-        let param = {
+        this.axios.post('/security/api/member/register', {
           loginName: this.loginName,
           password: this.password,
-        }
-        if (this.inviteId){
-          param.inviteId = this.inviteId
-        }
-        this.axios.post('/security/api/member/register', param).then(res => {
+          inviteId: this.inviteId
+        }).then(res => {
           self.registerSuccess(res)
         })
       },
@@ -119,4 +130,15 @@
 </script>
 <style lang="less">
   @import "register";
+
+  .register-page {
+    .form-item {
+      .label {
+        width: 80px;
+      }
+      input {
+        flex: 1;
+      }
+    }
+  }
 </style>
