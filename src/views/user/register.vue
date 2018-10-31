@@ -2,7 +2,7 @@
   <layout class="register-page user-form">
     <navbar :large='true'
             slot="navbar">
-      <span @click="goBack"
+      <span @click="goLogin"
             slot="right">登录</span>
     </navbar>
 
@@ -82,7 +82,9 @@
       goBack() {
         this.$router.back()
       },
-
+      goLogin(){
+        this.$router.push('/login')
+      },
       islogin() {
         if (USER.isLogin()) {
           this.$router.push('/account')
