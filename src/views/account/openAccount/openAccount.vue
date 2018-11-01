@@ -129,7 +129,7 @@
 
       registerSuccess(res) {
         if (res) {
-          this.$dialog.toast({mes: '在线开户成功，实盘交易初始密码：888888'});
+          this.$dialog.toast({mes: '在线开户成功，实盘交易初始密码：888888，等待审核'});
           setTimeout(() => {
             this.goBack()
           }, 1000)
