@@ -50,11 +50,17 @@
                  alt=''>
           </div>
         </div>
-        <div v-if='type == "bank_card"'
-             class='bank-wrap'>
-          <div class='item'>户名：王萃</div>
-          <div class='item'>开户银行：中国银行杭州文晖支行</div>
-          <div class='item'>开户银行卡号：6216696200004027992</div>
+        <div v-if='type == "bank_card"'>
+          <div class='bank-wrap'>
+            <div class='item'>户名：王萃</div>
+            <div class='item'>开户银行：中国工商银行大关苑支行</div>
+            <div class='item'>开户银行卡号：6212261202048343587</div>
+          </div>
+          <div class='bank-wrap'>
+            <div class='item'>户名：王萃</div>
+            <div class='item'>开户银行：中国光大银行杭州市庆春支行 </div>
+            <div class='item'>开户银行卡号：6226622304284538 </div>
+          </div>
         </div>
         <div style='color: orangered; text-align: center; margin-top: 5px;'>(转账备注交易账号+姓名)</div>
       </div>
