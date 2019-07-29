@@ -51,15 +51,13 @@
           </div>
         </div>
         <div v-if='type == "bank_card"'>
-          <div class='bank-wrap'>
-            <div class='item'>户名：王萃</div>
-            <div class='item'>开户银行：中国工商银行大关苑支行</div>
-            <div class='item'>开户银行卡号：6212261202048343587</div>
-          </div>
-          <div class='bank-wrap'>
-            <div class='item'>户名：王萃</div>
-            <div class='item'>开户银行：中国光大银行杭州市庆春支行 </div>
-            <div class='item'>开户银行卡号：6226622304284538 </div>
+          <div class='bank-wrap'
+               :key='"bankCardList" + index'
+               v-if='item.dataArr'
+               v-for='(item,index) in bankCardList'>
+            <div class='item'>户名：{{item.dataArr[1]}}</div>
+            <div class='item'>开户银行：{{item.dataArr[0]}}</div>
+            <div class='item'>开户银行卡号：{{item.dataArr[2]}}</div>
           </div>
         </div>
         <div style='color: orangered; text-align: center; margin-top: 5px;'>(转账备注交易账号+姓名)</div>
@@ -89,7 +87,8 @@
     data() {
       return {
         amount: '',
-        type: 'alipay'
+        type: 'alipay',
+        bankCardList: []
       }
     },
     computed: {
@@ -112,10 +111,25 @@
       },
 
       getToken() {
-        if (!USER.isLogin()) {
+        if (USER.isLogin()) {
+          this.getBankCardList()
+        } else {
           USER.logout()
           this.$router.push('/login')
         }
+      },
+
+      getBankCardList() {
+        this.axios.post('/security/api/recharge/card').then(res => {
+          if (isLongArr(res)) {
+            res.map((item, index) => {
+              if (item.value) {
+                item.dataArr = item.value.split(',')
+              }
+            })
+          }
+          this.bankCardList = res || []
+        })
       },
 
       validForm() {
