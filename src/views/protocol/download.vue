@@ -11,7 +11,7 @@
           <div>苹果</div>
         </div>
         <span class='qrcode-wrap'>
-          <img src='./downloadImg/ios.png'
+          <img :src='iosUrl'
                alt=''>
         </span>
       </div>
@@ -22,7 +22,7 @@
             <div>安卓</div>
           </div>
           <span class='qrcode-wrap'>
-            <img src='./downloadImg/android.jpg'
+            <img :src='androidUrl'
                  alt=''>
           </span>
         </div>
@@ -36,7 +36,9 @@
     data() {
       return {
         amount: '',
-        payType: 'ali'
+        payType: 'ali',
+        androidUrl: '',
+        iosUrl: '',
       }
     },
     computed: {
@@ -61,7 +63,24 @@
         if (!USER.isLogin()) {
           USER.logout()
           this.$router.push('/login')
+        } else {
+          this.getDownloadInfo()
         }
+      },
+
+      getDownloadInfo(){
+        this.axios.get('/security/api/download').then(res => {
+          let arr = res || []
+          arr.map((item,index) => {
+            if (item.key=="ANDROID"){
+              this.androidUrl = item.value
+            }
+            if (item.key=="IOS"){
+              this.iosUrl = item.value
+            }
+          })
+          console.log(res)
+        })
       },
 
       validForm() {

@@ -27,9 +27,9 @@
     </div>
 
     <div class='notice-container '
-         style='padding: 15px;background: rgb(248, 248, 248); margin-bottom: 15px;'>
-      <div style='margin-bottom: 10px;'>1.出金申请提交时间为交易日9:00-16:30，超过时段提交无效</div>
-      <div style='margin-bottom: 10px;'>2.出金办理时间为1个交易日内，一般2个小时内办理，以银行处理为准</div>
+         style='padding: 15px; line-height: 30px;background: rgb(248, 248, 248); margin-bottom: 15px;font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif; word-break: break-all;overflow: hidden;'
+         v-html="context"
+    >
     </div>
     <div class='btn btn-primary btn-block'
          @click="validForm">确定出金
@@ -41,6 +41,7 @@
     data() {
       return {
         amount: '',
+        context: '',
         availableBalance: 0,
       }
     },
@@ -60,6 +61,7 @@
       getToken() {
         if (USER.isLogin()) {
           this.getAccount()
+          this.getContext()
         } else {
           USER.logout()
           this.$router.push('/login')
@@ -69,6 +71,12 @@
       getAccount() {
         this.axios.post('/api/member/center').then(res => {
           this.availableBalance = res.availableBalance
+        })
+      },
+
+      getContext(){
+        this.axios.post('security/api/document/withdraw').then(res => {
+          this.context = res.value || ''
         })
       },
 
