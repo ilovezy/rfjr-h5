@@ -46,7 +46,7 @@
       <div class='info-container'>
         <div v-if='type == "alipay"'>
           <div class='qrcode'>
-            <img src='./img/qrcode.png'
+            <img :src='aliPayUrl'
                  alt=''>
           </div>
         </div>
@@ -88,7 +88,8 @@
       return {
         amount: '',
         type: 'alipay',
-        bankCardList: []
+        bankCardList: [],
+        aliPayUrl: ''
       }
     },
     computed: {
@@ -113,12 +114,22 @@
       getToken() {
         if (USER.isLogin()) {
           this.getBankCardList()
+          this.getDownloadInfo()
         } else {
           USER.logout()
           this.$router.push('/login')
         }
       },
-
+      getDownloadInfo() {
+        this.axios.get('/security/api/download').then(res => {
+          let arr = res || []
+          arr.map((item, index) => {
+            if (item.key == "ALIPAY") {
+              this.aliPayUrl = item.value
+            }
+          })
+        })
+      },
       getBankCardList() {
         this.axios.post('/security/api/recharge/card').then(res => {
           if (isLongArr(res)) {
