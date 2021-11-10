@@ -4,7 +4,7 @@
             slot="navbar"></navbar>
     <div class='invite-friend-wrap'>
       <div class='invite-text'>
-        您的好友150****3224（赵先生）<br> 邀请你注册日发金融
+        您的好友150****3224（赵先生）<br> 邀请你注册朗润金融
       </div>
 
       <div class='form-body'>

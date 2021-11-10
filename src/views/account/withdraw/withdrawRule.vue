@@ -1,7 +1,7 @@
 <template>
   <div class='withdraw-rule'>
     <div class='header'>
-      日发金融提现时间及费用规则：
+      朗润金融提现时间及费用规则：
     </div>
 
     <div class='title'>

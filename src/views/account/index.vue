@@ -43,14 +43,14 @@
     </div>
 
     <div class='simple-panel'>
-      <simple-list-item
-        @click.native='goTarget("/recharge")'
-        icon='icon-chongzhi2'
-        title='我要入金'/>
-      <simple-list-item
-        @click.native='goTarget("/rechargeList")'
-        icon='icon-jilu1-copy'
-        title='入金记录'/>
+<!--      <simple-list-item-->
+<!--        @click.native='goTarget("/recharge")'-->
+<!--        icon='icon-chongzhi2'-->
+<!--        title='我要入金'/>-->
+<!--      <simple-list-item-->
+<!--        @click.native='goTarget("/rechargeList")'-->
+<!--        icon='icon-jilu1-copy'-->
+<!--        title='入金记录'/>-->
       <simple-list-item
         @click.native='goTarget("/withdraw", "yes")'
         icon='icon-tixian3'
@@ -64,12 +64,12 @@
         <!--icon='icon-setting.png'-->
         <!--title='出入金密码'/>-->
     </div>
-    <div class='simple-panel'>
-      <simple-list-item
-        link='/download'
-        icon='icon-xiazai1'
-        title='我要下载'/>
-    </div>
+<!--    <div class='simple-panel'>-->
+<!--      <simple-list-item-->
+<!--        link='/download'-->
+<!--        icon='icon-xiazai1'-->
+<!--        title='我要下载'/>-->
+<!--    </div>-->
     <div class='simple-panel'>
       <simple-list-item
         link='/changePassword'

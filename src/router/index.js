@@ -14,7 +14,7 @@ let basicRoute = [
     path: '/',
     name: 'accountHome',//首页
     meta: {
-      title: '日发金融',
+      title: '朗润金融',
       requireAuth: true
     },
     component: resolve => require(['@/views/account/index.vue'], resolve)

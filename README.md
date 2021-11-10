@@ -1,8 +1,8 @@
-# 日发金融-h5
+# 朗润金融-h5
 
 ## test git
 
-> this is 日发金融 mobile project
+> this is 朗润金融 mobile project
 
 ## Build Setup
 

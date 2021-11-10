@@ -41,7 +41,7 @@ router.beforeEach((to, from, next) => {
   store.commit('updateLoadingStatus', {isLoading: true})
 
   //动态修改标题
-  document.title = '日发金融 - ' + to.meta.title
+  document.title = '朗润金融 - ' + to.meta.title
   //路由切换动画
   let routeLength = store.state.routeChain.length;
 
